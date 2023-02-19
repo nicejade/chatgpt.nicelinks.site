@@ -1,0 +1,31 @@
+{
+  "name": "chatgpt.nicelinks.site",
+  "version": "0.1.0",
+  "description": "ChatGPT For Chinese.",
+  "scripts": {
+    "watcher": "onchange \"{client,server}/**/**/*.{js,ts,jsx,tsx,css,scss,vue}\" -- prettier --write {{changed}}",
+    "prettier": "prettier --write \"{client,server}/**/**/*.{js,ts,jsx,tsx,css,scss,vue}\""
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 100,
+    "proseWrap": "never"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run precommit-msg && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**.{js,json,pcss,vue,css,scss}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "onchange": "^7.1.0",
+    "prettier": "^2.8.4"
+  }
+}
