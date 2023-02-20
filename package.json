@@ -6,12 +6,6 @@
     "watcher": "onchange \"{client,server}/**/**/*.{js,ts,jsx,tsx,css,scss,vue}\" -- prettier --write {{changed}}",
     "prettier": "prettier --write \"{client,server}/**/**/*.{js,ts,jsx,tsx,css,scss,vue}\""
   },
-  "prettier": {
-    "singleQuote": true,
-    "semi": false,
-    "printWidth": 100,
-    "proseWrap": "never"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "yarn run precommit-msg && lint-staged"
