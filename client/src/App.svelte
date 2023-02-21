@@ -5,6 +5,6 @@
 </script>
 
 <Header />
-<main class="w-full h-full m-auto max-w-xl flex flex-col justify-start">
+<main class="relative flex flex-col justify-start w-2/3 h-full max-w-3xl m-auto mx-auto mt-16">
   <ChatGPT />
 </main>

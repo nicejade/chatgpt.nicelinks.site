@@ -1,20 +1,29 @@
 <script lang="ts">
   import logo from './../assets/logo.svg'
+  import github from './../assets/github.svg'
 
   const title: string = '智聊问异斋'
 </script>
 
-<header class="header h-16 flex flex-row justify-start items-center px-2">
-  <img class="logo mr-2" src={logo} alt={title} />
-  <a
-    class="inline-flex h-full flex-col justify-center align-center"
-    href="https://chatgpt.nicelinks"
-    rel="noreferrer"
-  >
-    <h1 class="inline-block	text-2xl leading-none tracking-tight text-gray-900 dark:text-white">
-      {title}
-    </h1>
-  </a>
+<header class="fixed top-0 flex flex-row items-center justify-between w-full h-16 px-4 header">
+  <div class="flex flex-row items-center">
+    <img class="w-12 h-12 mr-2 logo" src={logo} alt={title} />
+    <a
+      class="inline-flex flex-col justify-center h-full align-center"
+      href="https://chatgpt.nicelinks"
+      rel="noreferrer"
+    >
+      <h1 class="inline-block text-2xl leading-none tracking-tight text-gray-900 dark:text-white">
+        {title}
+      </h1>
+    </a>
+  </div>
+  <nav class="flex flex-row items-center">
+    <a href="https://nicelinks.site" class="mr-4 text-lg" rel="noreferrer"> 倾城之链 </a>
+    <a href="https://github.com/nicejade/chatgpt.nicelinks.site" rel="noreferrer">
+      <img class="w-8 h-8 mr-2 logo" src={github} alt={title} />
+    </a>
+  </nav>
 </header>
 
 <style>
@@ -24,8 +33,6 @@
 
   .logo {
     display: inline-block;
-    width: 3rem;
-    height: 3rem;
     will-change: filter;
     transition: filter 300ms;
   }
