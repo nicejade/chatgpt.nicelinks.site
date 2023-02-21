@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "ChatGPT For Chinese.",
   "scripts": {
+    "deploy": "pm2 start ecosystem.config.js --env production",
+    "redeploy": "git pull && pm2 restart ecosystem.config.js --env production",
     "watcher": "onchange \"{client,server}/**/**/*.{js,ts,jsx,tsx,css,scss,vue}\" -- prettier --write {{changed}}",
     "prettier": "prettier --write \"{client,server}/**/**/*.{js,ts,jsx,tsx,css,scss,vue}\""
   },

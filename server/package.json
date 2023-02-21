@@ -3,16 +3,18 @@
   "description": "",
   "version": "0.1.0",
   "author": "nicejade",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "npx tsx watch src/index.ts"
+    "start": "npx tsx src/index.ts",
+    "watch": "npx tsx watch src/index.ts"
   },
   "dependencies": {
-    "@hapi/hapi": "^21.3.0",
-    "chatgpt": "^4.4.1"
+    "chatgpt": "^4.4.1",
+    "fastify": "^4.13.0"
   },
-  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.14.0"
-  }
+    "@types/node": "^18.14.0",
+    "typescript": "^4.9.5"
+  },
+  "license": "MIT"
 }

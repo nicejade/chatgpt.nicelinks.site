@@ -1,33 +1,46 @@
-'use strict'
-
-import Hapi from '@hapi/hapi'
+import Fastify from 'fastify'
 import { ChatGPTAPI } from 'chatgpt'
 
-const server = Hapi.server({
-  port: 3000,
-  host: 'localhost',
+const fastify = Fastify({
+  logger: true
 })
 
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: (request, h) => {
-    return 'Hello, world!1222'
-  },
-})
-
-// const api = new ChatGPTAPI({
-//   apiKey: process.env.OPENAI_API_KEY,
-// })
-
-const init = async () => {
-  await server.start()
-  console.log(`Server running at: ${server.info.uri}`)
+const userWorkerPool: object = {}
+interface BodyConf {
+  key: string,
+  text: string,
+  id: string,
+  time: number,
 }
 
-process.on('unhandledRejection', (err) => {
-  console.log(err)
-  process.exit(1)
+fastify.post('/api/requestChatGPT', async (request, reply) => {
+  const body: BodyConf = request.body
+  const { key, text, id } = body
+  const currentTime = (new Date()).getTime()
+  if (userWorkerPool[key]) {
+    const api = userWorkerPool[key].api
+    userWorkerPool[key].time = currentTime
+    return await api.sendMessage(text, {
+      parentMessageId: id
+    })
+  }
+  const api = new ChatGPTAPI({
+    apiKey: key,
+  })
+  userWorkerPool[key] = {
+    api,
+    time: currentTime
+  }
+  return await api.sendMessage(text)
 })
 
-init()
+const start = async () => {
+  try {
+    await fastify.listen({ port: 6666 })
+  } catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+}
+
+start()
