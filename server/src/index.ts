@@ -1,9 +1,13 @@
 import Fastify from 'fastify'
 import { ChatGPTAPI } from 'chatgpt'
+import fetch from 'node-fetch'
 
 const fastify = Fastify({
   logger: true
 })
+
+// Fix Bug: [fetch is not defined](Ubuntu16 Cannot Upgrade Node to v18.*)
+global.fetch = fetch
 
 const userWorkerPool: object = {}
 interface BodyConf {
