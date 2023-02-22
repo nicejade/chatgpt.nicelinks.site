@@ -82,28 +82,23 @@
 {/if}
 
 <div class="flex flex-row items-center justify-between w-full mt-4">
-  <label
-    for="open-ai-key"
-    class="inline-block w-1/5 text-sm font-medium text-gray-900 dark:text-white"
-    >OPEN AI KEY：</label
-  >
   <input
     type="text"
     id="open-ai-key"
     bind:value={openAIKey}
-    class="inline-block bg-gray-50 border border-gray-300text-gray-900 text-sm 
-		rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 
+    class="inline-block bg-gray-50 border border-gray-300 text-gray-900 text-sm 
+		rounded-lg focus:ring-rose-500 focus:border-rose-500 w-full p-2.5 
 		dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
-		dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+		dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
     placeholder="请填写 OPEN AI KEY"
     required
   />
   <button
     type="button"
     on:click={onSaveClick}
-    class="ml-4 w-28 text-gray-900 bg-white border border-gray-300 
+    class="ml-2 mr-2 w-28 text-gray-900 bg-white border border-gray-300 
 		focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 
-		font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 
+		font-medium rounded-full text-sm px-5 py-2.5  dark:bg-gray-800 
 		dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 
 		dark:hover:border-gray-600 dark:focus:ring-gray-700"
     >保存
@@ -120,24 +115,26 @@
   {/each}
 </section>
 
-<div class="fixed flex flex-row items-center justify-between w-2/3 max-w-3xl mx-auto bottom-2">
+<div
+  class="fixed flex flex-row items-center justify-between w-full max-w-2xl px-1 mx-auto bottom-2"
+>
   <input
     type="text"
     id="message"
     bind:value={userMsgText}
-    class="inline-block bg-gray-50 border border-gray-300 text-gray-900
-		 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full 
+    class="inline-block w-full bg-gray-50 border border-gray-300 text-gray-900
+		 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500
 		 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-	 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+	 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
     placeholder="请输入您想与 Chat GPT 交流的内容"
     required
   />
   <button
     type="button"
     on:click={onSendClick}
-    class="ml-4 w-28 text-gray-900 bg-white border border-gray-300 
+    class="ml-2 w-28 text-gray-900 bg-white border border-gray-300 
 		focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 
-		font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 
+		font-medium rounded-full text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 
 		dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 
 		dark:hover:border-gray-600 dark:focus:ring-gray-700"
     >发送
@@ -146,6 +143,6 @@
 
 <style>
   .chat-list {
-    max-height: calc(100vh - 13rem);
+    min-height: calc(100vh - 15rem);
   }
 </style>

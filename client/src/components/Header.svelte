@@ -1,12 +1,12 @@
 <script lang="ts">
-  import logo from './../assets/logo.svg'
-  import github from './../assets/github.svg'
+  import logo from './../assets/icons/logo.svg'
+  import github from './../assets/icons/github.svg'
 
   const title: string = '智聊问异斋'
 </script>
 
-<header class="fixed top-0 flex flex-row items-center justify-between w-full h-16 px-4 header">
-  <div class="flex flex-row items-center">
+<header class="flex flex-row items-center justify-between w-full h-16 px-4 header ">
+  <div class="inline-flex flex-row items-center h-full">
     <img class="w-12 h-12 mr-2 logo" src={logo} alt={title} />
     <a
       class="inline-flex flex-col justify-center h-full align-center"
@@ -18,7 +18,7 @@
       </h1>
     </a>
   </div>
-  <nav class="flex flex-row items-center">
+  <nav class="inline-flex flex-row items-center h-full">
     <a href="https://nicelinks.site" class="mr-4 text-lg" rel="noreferrer"> 倾城之链 </a>
     <a href="https://github.com/nicejade/chatgpt.nicelinks.site" rel="noreferrer">
       <img class="w-8 h-8 mr-2 logo" src={github} alt={title} />
