@@ -13,14 +13,18 @@
   let chatTextArr: Array<object> = []
 
   const OPEN_AI_KEY = 'open-ai-key'
+  const DEFAULT_CHAT: object = {
+    from: 'assistant',
+    text: '您好，输入 OPEN AI KEY，即可与 AI 对话，🎉',
+    time: new Date().getTime(),
+  }
 
   const injectUserChat = () => {
-    chatTextArr.push({
+    chatTextArr = chatTextArr.concat({
       from: 'user',
       text: userMsgText,
       time: new Date().getTime(),
     })
-    chatTextArr = chatTextArr
   }
 
   const injectGptChat = () => {
@@ -66,12 +70,15 @@
     setLocalStorage(OPEN_AI_KEY, openAIKey)
   }
 
+  const onResetClick = () => {}
+
   const handleClose = () => {
     errorMsgText = ''
   }
 
   onMount(() => {
     openAIKey = getLocalStorage(OPEN_AI_KEY)
+    chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
   })
 </script>
 
@@ -81,7 +88,7 @@
   </Alert>
 {/if}
 
-<div class="flex flex-row items-center justify-between w-full mt-4">
+<div class="flex flex-row items-center justify-between w-full mt-2">
   <input
     type="text"
     id="open-ai-key"
@@ -105,7 +112,9 @@
   </button>
 </div>
 
-<section class="w-full px-4 mx-auto my-4 overflow-scroll chat-list">
+<section
+  class="w-full px-4 py-2 mx-auto my-2 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
+>
   {#each chatTextArr as item, i}
     {#if item.from === 'user'}
       <UserChat params={item} />
@@ -116,7 +125,7 @@
 </section>
 
 <div
-  class="fixed flex flex-row items-center justify-between w-full max-w-2xl px-1 mx-auto bottom-2"
+  class="fixed left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-2 mx-auto bottom-2"
 >
   <input
     type="text"
@@ -129,20 +138,35 @@
     placeholder="请输入您想与 Chat GPT 交流的内容"
     required
   />
-  <button
-    type="button"
-    on:click={onSendClick}
-    class="ml-2 w-28 text-gray-900 bg-white border border-gray-300 
-		focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 
-		font-medium rounded-full text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 
-		dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 
-		dark:hover:border-gray-600 dark:focus:ring-gray-700"
-    >发送
-  </button>
+  <div class="flex flex-row items-center justify-between w-full mt-2">
+    <button
+      type="button"
+      on:click={onResetClick}
+      class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden 
+			text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br 
+			from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 
+			group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 
+			focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
+    >
+      <span
+        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+      >
+        重置聊天
+      </span>
+    </button>
+    <button
+      type="button"
+      on:click={onSendClick}
+      class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 
+			hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 
+			dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+      >发送
+    </button>
+  </div>
 </div>
 
 <style>
   .chat-list {
-    min-height: calc(100vh - 15rem);
+    min-height: calc(100vh - 16rem);
   }
 </style>

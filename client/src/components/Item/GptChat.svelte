@@ -9,5 +9,5 @@
     src={logo}
     alt="智聊问异斋"
   />
-  <div class="ml-2">{params.text}</div>
+  <div class="mt-3 ml-3">{params.text}</div>
 </div>

@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 html,
-body,
-#app {
+body {
   width: 100%;
   height: 100%;
+}
+
+#app {
+  min-height: 100vh;
+  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 
 :root {
