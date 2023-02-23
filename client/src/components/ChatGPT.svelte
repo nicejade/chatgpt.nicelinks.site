@@ -3,7 +3,9 @@
   import Alert from './Alert.svelte'
   import UserChat from './Item/UserChat.svelte'
   import GptChat from './Item/GptChat.svelte'
+  import Loading from './Loading.svelte'
   import apis from '../helper/apis'
+  import { sleep } from './../helper/utils'
   import { setLocalStorage, getLocalStorage } from './../helper/utils'
 
   let openAIKey: string = ''
@@ -11,6 +13,7 @@
   let errorMsgText: string = ''
   let currentChatId: string = ''
   let chatTextArr: Array<object> = []
+  let isLoading: boolean = false
 
   const OPEN_AI_KEY = 'open-ai-key'
   const DEFAULT_CHAT: object = {
@@ -25,9 +28,17 @@
       text: userMsgText,
       time: new Date().getTime(),
     })
+    scrollChatToBottom()
+  }
+
+  const scrollChatToBottom = async () => {
+    await sleep(10)
+    const chatListNode = document.getElementById('chat-list')
+    chatListNode.scrollTo({ top: 2e6, behavior: 'smooth' })
   }
 
   const injectGptChat = () => {
+    isLoading = true
     const params: object = {
       key: openAIKey,
       text: userMsgText,
@@ -50,6 +61,8 @@
       })
       .finally(() => {
         userMsgText = ''
+        isLoading = false
+        scrollChatToBottom()
       })
   }
 
@@ -70,7 +83,13 @@
     setLocalStorage(OPEN_AI_KEY, openAIKey)
   }
 
-  const onResetClick = () => {}
+  const onResetClick = () => {
+    userMsgText = ''
+  }
+
+  const handleEdit = (event) => {
+    userMsgText = event.detail
+  }
 
   const handleClose = () => {
     errorMsgText = ''
@@ -88,7 +107,7 @@
   </Alert>
 {/if}
 
-<div class="flex flex-row items-center justify-between w-full mt-2">
+<div class="flex flex-row items-center justify-between w-full mt-3">
   <input
     type="text"
     id="open-ai-key"
@@ -113,19 +132,23 @@
 </div>
 
 <section
-  class="w-full px-4 py-2 mx-auto my-2 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
+  id="chat-list"
+  class="w-full px-4 py-2 mx-auto my-3 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
 >
   {#each chatTextArr as item, i}
     {#if item.from === 'user'}
-      <UserChat params={item} />
+      <UserChat params={item} on:edit={handleEdit} />
     {:else}
       <GptChat params={item} />
     {/if}
   {/each}
+  {#if isLoading}
+    <Loading />
+  {/if}
 </section>
 
 <div
-  class="fixed left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-2 mx-auto bottom-2"
+  class="fixed bottom-0 left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-2 mx-auto"
 >
   <input
     type="text"
@@ -168,5 +191,7 @@
 <style>
   .chat-list {
     min-height: calc(100vh - 16rem);
+    max-height: calc(100vh - 16rem);
+    overflow: scroll;
   }
 </style>

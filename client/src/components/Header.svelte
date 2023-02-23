@@ -5,7 +5,9 @@
   const title: string = '智聊问异斋'
 </script>
 
-<header class="flex flex-row items-center justify-between w-full h-16 px-4 header ">
+<header
+  class="flex flex-row items-center justify-between w-full h-16 px-4 shadow-md "
+>
   <div class="inline-flex flex-row items-center h-full">
     <img class="w-12 h-12 mr-2 logo" src={logo} alt={title} />
     <a
@@ -13,7 +15,7 @@
       href="https://chatgpt.nicelinks"
       rel="noreferrer"
     >
-      <h1 class="inline-block text-2xl leading-none tracking-tight text-gray-900 dark:text-white">
+      <h1 class="inline-block text-2xl leading-none tracking-tight">
         {title}
       </h1>
     </a>
@@ -30,7 +32,6 @@
   .header {
     box-shadow: rgba(0, 0, 0, 0.5) 0px -0.4rem 0.9rem 0.2rem;
   }
-
   .logo {
     display: inline-block;
     will-change: filter;
@@ -38,11 +39,6 @@
   }
   .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
+    filter: invert(1) hue-rotate(90deg);
   }
 </style>

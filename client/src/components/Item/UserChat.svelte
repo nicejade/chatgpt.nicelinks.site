@@ -1,12 +1,22 @@
 <script>
   export let params
+  import { createEventDispatcher } from 'svelte'
+
+  import edit from './../../assets/icons/edit.svg'
   import user from './../../assets/icons/user.svg'
+
+  const dispatch = createEventDispatcher()
+
+  const onEditClick = () => dispatch('edit', params.text)
 </script>
 
 <div class="flex flex-row justify-end mb-4">
-  <div class="mt-3 mr-3">{params.text}</div>
+  <button type="button" class="p-1 mt-2" on:click={onEditClick}>
+    <img class="w-6 h-6 m-1" src={edit} alt="智聊问异斋" />
+  </button>
+  <div class="mt-3 mr-3 text-teal-500 ">{params.text}</div>
   <img
-    class="w-10 h-10 m-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+    class="w-10 h-10 m-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 dark:text-rose-400"
     src={user}
     alt="智聊问异斋"
   />
