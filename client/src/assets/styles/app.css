@@ -10,7 +10,14 @@ body {
 
 #app {
   min-height: 100vh;
-  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
+}
+
+a {
+  color: #fb7185;
+}
+a:hover {
+  color: #747bff;
 }
 
 :root {
@@ -31,9 +38,6 @@ body {
   :root {
     color: #213547;
     background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
   }
   button {
     background-color: #f9f9f9;

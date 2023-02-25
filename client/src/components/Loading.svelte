@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center w-full">
-  <span>AI 正在思索中，请稍后</span>
+  <span>AI 正在生成回复，请稍后</span>
   <div class="mx-2 balls">
     <div />
     <div />
@@ -9,7 +9,7 @@
 
 <style>
   .balls {
-    width: 3rem;
+    width: 2rem;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -17,10 +17,10 @@
   }
 
   .balls div {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.3rem;
+    height: 0.3rem;
     border-radius: 50%;
-    background-color: #fb7185;
+    background-color: #213547;
     transform: translateY(-100%);
     animation: wave 0.6s ease-in-out alternate infinite;
   }

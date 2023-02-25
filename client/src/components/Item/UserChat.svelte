@@ -11,7 +11,7 @@
 </script>
 
 <div class="flex flex-row justify-end mb-4">
-  <button type="button" class="p-1 mt-2" on:click={onEditClick}>
+  <button type="button" class="flex flex-row items-end w-12 p-1 min-w-max " on:click={onEditClick}>
     <img class="w-6 h-6 m-1" src={edit} alt="智聊问异斋" />
   </button>
   <div class="mt-3 mr-3 text-teal-500 ">{params.text}</div>

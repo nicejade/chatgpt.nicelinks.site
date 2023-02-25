@@ -1,12 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import Alert from './Alert.svelte'
-  import UserChat from './Item/UserChat.svelte'
-  import GptChat from './Item/GptChat.svelte'
-  import Loading from './Loading.svelte'
+  import Alert from '../components/Alert.svelte'
+  import UserChat from '../components/Item/UserChat.svelte'
+  import GptChat from '../components/Item/GptChat.svelte'
+  import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
-  import { sleep } from './../helper/utils'
-  import { setLocalStorage, getLocalStorage } from './../helper/utils'
+  import { setLocalStorage, getLocalStorage, sleep } from '../helper/utils'
 
   let openAIKey: string = ''
   let userMsgText: string = ''
@@ -66,6 +65,12 @@
       })
   }
 
+  onMount(() => {
+    openAIKey = getLocalStorage(OPEN_AI_KEY)
+    chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
+  })
+
+  /*----------------CallBackEvent----------------*/
   const onSendClick = () => {
     if (!openAIKey) {
       errorMsgText = '如要正常使用，请先填写 OPEN AI KEY.'
@@ -94,11 +99,6 @@
   const handleClose = () => {
     errorMsgText = ''
   }
-
-  onMount(() => {
-    openAIKey = getLocalStorage(OPEN_AI_KEY)
-    chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
-  })
 </script>
 
 {#if errorMsgText !== ''}
@@ -150,11 +150,11 @@
 <div
   class="fixed bottom-0 left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-2 mx-auto"
 >
-  <input
-    type="text"
+  <textarea
     id="message"
+    rows="1"
     bind:value={userMsgText}
-    class="inline-block w-full bg-gray-50 border border-gray-300 text-gray-900
+    class="inline-block w-full bg-gray-50 border resize-none border-gray-300 text-gray-900
 		 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500
 		 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
 	 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
@@ -166,23 +166,23 @@
       type="button"
       on:click={onResetClick}
       class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden 
-			text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br 
+			text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br 
 			from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 
 			group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 
 			focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
     >
       <span
-        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+        class="relative px-5 py-2 transition-all duration-75 ease-in bg-white rounded-full dark:bg-gray-900 group-hover:bg-opacity-0"
       >
-        重置聊天
+        重置
       </span>
     </button>
     <button
       type="button"
       on:click={onSendClick}
-      class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 
+      class="text-white w-20 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 
 			hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 
-			dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+			dark:focus:ring-pink-800 font-medium rounded-full text-sm px-5 py-2.5 text-center"
       >发送
     </button>
   </div>
@@ -190,8 +190,7 @@
 
 <style>
   .chat-list {
-    min-height: calc(100vh - 16rem);
-    max-height: calc(100vh - 16rem);
+    height: calc(100vh - 15rem);
     overflow: scroll;
   }
 </style>
