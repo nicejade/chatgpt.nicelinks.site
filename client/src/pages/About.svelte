@@ -1,9 +1,13 @@
+<script>
+  import { TITLE } from './../helper/constant'
+</script>
+
 <div class="flex flex-col justify-between w-full mt-3 items-left">
   <div class="m-auto my-3">
-    <img class="w-16" src="https://chatgpt.nicelinks.site/logo.svg" alt="智聊问异斋" />
+    <img class="w-16" src="https://chatgpt.nicelinks.site/logo.svg" alt={TITLE} />
   </div>
   <div class="m-auto my-3">
-    <strong> <a href="https://chatgpt.nicelinks.site/">智聊问异斋</a></strong>，非官方 ChatGPT
+    <strong> <a href="https://chatgpt.nicelinks.site/">{TITLE}</a></strong>，非官方 ChatGPT
     在线客户端，旨在提供更便捷的 ChatGPT 访问体验；它基于非官方
     <a href="https://github.com/transitive-bullshit/chatgpt-api">ChatGPT API</a>、<a
       href="https://nicelinks.site/post/62a9c2ad90509e23cea772c0">Svelte</a
