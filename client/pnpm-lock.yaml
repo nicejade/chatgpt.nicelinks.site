@@ -18,6 +18,7 @@ specifiers:
 dependencies:
   axios: 1.3.3
   flowbite: 1.6.3
+  svelte: 3.55.1
   svelte-spa-router: 3.3.0
 
 devDependencies:
@@ -25,7 +26,6 @@ devDependencies:
   '@tsconfig/svelte': 3.0.0
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
-  svelte: 3.55.1
   svelte-check: 2.10.3_pehl75e5jsy22vp33udjja4soi
   tailwindcss: 3.2.7
   tslib: 2.5.0
@@ -1138,7 +1138,6 @@ packages:
   /svelte/3.55.1:
     resolution: {integrity: sha512-S+87/P0Ve67HxKkEV23iCdAh/SX1xiSfjF1HOglno/YTbSTW7RniICMCofWGdJJbdjw3S+0PfFb1JtGfTXE0oQ==}
     engines: {node: '>= 8'}
-    dev: true
 
   /tailwindcss/3.2.7:
     resolution: {integrity: sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==}
