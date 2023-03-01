@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "publish": "yarn build && ./push2server.sh",
+    "deploy": "yarn build && ./push2server.sh",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
@@ -23,6 +23,7 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
+    "@waline/client": "^2.14.7",
     "axios": "^1.3.3",
     "flowbite": "^1.6.3",
     "svelte": "^3.55.1",
