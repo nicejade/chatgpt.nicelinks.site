@@ -12,8 +12,7 @@
     "chatgpt": "^5.0.4",
     "dotenv": "^16.0.3",
     "fastify": "^4.13.0",
-    "isomorphic-fetch": "^3.0.0",
-    "socks-proxy-agent": "^7.0.0"
+    "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.14.0",

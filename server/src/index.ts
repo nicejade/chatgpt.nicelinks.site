@@ -3,7 +3,6 @@ import * as dotenv from 'dotenv'
 // Fix Bug: [fetch is not defined](Ubuntu16 Cannot Upgrade Node to v18.*)
 import 'isomorphic-fetch'
 import { ChatGPTAPI } from 'chatgpt'
-import { SocksProxyAgent } from 'socks-proxy-agent'
 
 dotenv.config()
 
@@ -19,20 +18,17 @@ interface BodyConf {
 }
 
 const genRequestOption = (key: string) => {
-  const agent = new SocksProxyAgent({
-    hostname: process.env.SOCKS_PROXY_HOST,
-    port: process.env.SOCKS_PROXY_PORT,
-  })
   return {
-    apiKey: key,
+    apiKey: key || process.env.OPEN_AI_KEY,
     completionParams: {
       model: 'gpt-3.5-turbo',
-    },
-    fetch: (url: string, options) => {
-      return fetch(url, { agent, ...options })
-    },
+    }
   }
 }
+
+fastify.get('/', (request, reply) => {
+  reply.send({ hello: 'world ! 🎉' })
+})
 
 fastify.post('/api/requestChatGPT', async (request, reply) => {
   const body: BodyConf = request.body
@@ -57,7 +53,16 @@ fastify.post('/api/requestChatGPT', async (request, reply) => {
 
 const start = async () => {
   try {
-    await fastify.listen({ port: 6666 })
+    fastify.listen({
+      port: 8000,
+      host: '0.0.0.0'
+    }, (err, address) => {
+      if (err) {
+        fastify.log.error(err)
+        process.exit(1)
+      }
+      fastify.log.info(`server listening on ${address}`)
+    })
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
