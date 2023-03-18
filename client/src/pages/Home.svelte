@@ -59,8 +59,8 @@
         errorMsgText = err?.message
       })
       .finally(() => {
-        userMsgText = ''
         isLoading = false
+        resetUserInput()
         scrollChatToBottom()
       })
   }
@@ -70,18 +70,24 @@
     chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
   })
 
-  /*----------------CallBackEvent----------------*/
-  const onSendClick = () => {
-    if (!openAIKey) {
-      errorMsgText = '如要正常使用，请先填写 OPEN AI KEY.'
-      return
-    }
-    if (!userMsgText) {
-      errorMsgText = '嗨，主人，请输入您想与 Chat GPT 交流的内容.'
+  const checkAndAskGPT = () => {
+    if (!userMsgText.trim()) {
+      errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.'
+      resetUserInput()
       return
     }
     injectUserChat()
     injectGptChat()
+  }
+
+  const resetUserInput = async () => {
+    await sleep(10)
+    userMsgText = ''
+  }
+
+  /*----------------CallBackEvent----------------*/
+  const onSendClick = () => {
+    checkAndAskGPT()
   }
 
   const onSaveClick = () => {
@@ -89,7 +95,7 @@
   }
 
   const onResetClick = () => {
-    userMsgText = ''
+    resetUserInput()
   }
 
   const handleEdit = (event) => {
@@ -99,11 +105,17 @@
   const handleClose = () => {
     errorMsgText = ''
   }
+
+  const handleKeydown = (event) => {
+    if (event.keyCode === 13 && event.code === 'Enter') {
+      checkAndAskGPT()
+    }
+  }
 </script>
 
 {#if errorMsgText !== ''}
   <Alert on:close={handleClose}>
-    <p>{errorMsgText}</p>
+    {errorMsgText}
   </Alert>
 {/if}
 
@@ -154,6 +166,7 @@
     id="message"
     rows="1"
     bind:value={userMsgText}
+    on:keydown={handleKeydown}
     class="inline-block w-full bg-gray-50 border resize-none border-gray-300 text-gray-900
 		 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500
 		 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400

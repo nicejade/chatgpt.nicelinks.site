@@ -10,5 +10,5 @@
     src={logo}
     alt={TITLE}
   />
-  <div class="mt-3 ml-3 text-rose-400">{params.text}</div>
+  <div class="mt-3 ml-3 text-rose-400 whitespace-pre-line	">{params.text}</div>
 </div>
