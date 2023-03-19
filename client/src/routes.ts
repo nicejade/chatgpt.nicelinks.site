@@ -16,6 +16,10 @@ export default {
     })[0]
   }),
 
+  '/setting': wrap({
+    asyncComponent: () => import('./pages/Setting.svelte')
+  }),
+
   '/about': wrap({
     asyncComponent: () => import('./pages/About.svelte')
   }),

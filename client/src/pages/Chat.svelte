@@ -6,9 +6,8 @@
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
   import { OPEN_AI_KEY } from './../helper/constant'
-  import { setLocalStorage, getLocalStorage, sleep } from '../helper/utils'
+  import { getLocalStorage, sleep } from '../helper/utils'
 
-  let openAIKey: string = ''
   let userMsgText: string = ''
   let errorMsgText: string = ''
   let currentChatId: string = ''
@@ -17,7 +16,7 @@
 
   const DEFAULT_CHAT: object = {
     from: 'assistant',
-    text: '您好，输入 OPEN AI KEY，即可与 AI 对话，🎉',
+    text: '🎉 即可与 AI 对话，（可前往「设置」，使用您专属 OPEN AI KEY）',
     time: new Date().getTime(),
   }
 
@@ -39,7 +38,7 @@
   const injectGptChat = () => {
     isLoading = true
     const params: object = {
-      key: openAIKey,
+      key: getLocalStorage(OPEN_AI_KEY),
       text: userMsgText,
       id: currentChatId,
     }
@@ -66,7 +65,6 @@
   }
 
   onMount(() => {
-    openAIKey = getLocalStorage(OPEN_AI_KEY)
     chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
   })
 
@@ -88,10 +86,6 @@
   /*----------------CallBackEvent----------------*/
   const onSendClick = () => {
     checkAndAskGPT()
-  }
-
-  const onSaveClick = () => {
-    setLocalStorage(OPEN_AI_KEY, openAIKey)
   }
 
   const onResetClick = () => {
@@ -118,19 +112,6 @@
     {errorMsgText}
   </Alert>
 {/if}
-
-<div class="flex flex-row items-center justify-between w-full mt-3">
-  <input
-    type="text"
-    id="open-ai-key"
-    bind:value={openAIKey}
-    class="inline-block bg-gray-50 border border-gray-300 text-gray-900 text-sm 
-		rounded-lg focus:ring-rose-500 focus:border-rose-500 w-full p-2.5"
-    placeholder="请填写 OPEN AI KEY"
-    required
-  />
-  <button type="button" on:click={onSaveClick} class="ml-2 regular-btn">保存 </button>
-</div>
 
 <section
   id="chat-list"
@@ -176,7 +157,7 @@
 
 <style>
   .chat-list {
-    height: calc(100vh - 15rem);
+    height: calc(100vh - 12rem);
     overflow: scroll;
   }
 </style>
