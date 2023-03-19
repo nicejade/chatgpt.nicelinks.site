@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('./tailwind');
+@import url('./apply');
 
 html,
 body {
@@ -14,10 +13,11 @@ body {
 }
 
 a {
-  color: #fb7185;
+  color: #0ea5e9;
+  transition: color .2s ease .2s;
 }
 a:hover {
-  color: #747bff;
+  color: #fb7185;
 }
 
 p {

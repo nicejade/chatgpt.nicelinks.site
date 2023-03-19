@@ -125,27 +125,16 @@
     id="open-ai-key"
     bind:value={openAIKey}
     class="inline-block bg-gray-50 border border-gray-300 text-gray-900 text-sm 
-		rounded-lg focus:ring-rose-500 focus:border-rose-500 w-full p-2.5 
-		dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
-		dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+		rounded-lg focus:ring-rose-500 focus:border-rose-500 w-full p-2.5"
     placeholder="请填写 OPEN AI KEY"
     required
   />
-  <button
-    type="button"
-    on:click={onSaveClick}
-    class="ml-2 mr-2 w-28 text-gray-900 bg-white border border-gray-300 
-		focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 
-		font-medium rounded-full text-sm px-5 py-2.5  dark:bg-gray-800 
-		dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 
-		dark:hover:border-gray-600 dark:focus:ring-gray-700"
-    >保存
-  </button>
+  <button type="button" on:click={onSaveClick} class="ml-2 regular-btn">保存 </button>
 </div>
 
 <section
   id="chat-list"
-  class="w-full px-4 py-2 mx-auto my-3 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
+  class="w-full p-2 mx-auto my-3 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
 >
   {#each chatTextArr as item, i}
     {#if item.from === 'user'}
@@ -160,42 +149,26 @@
 </section>
 
 <div
-  class="fixed bottom-0 left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-2 mx-auto"
+  class="fixed bottom-0 left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-4 mx-auto"
 >
   <textarea
     id="message"
     rows="1"
     bind:value={userMsgText}
     on:keydown={handleKeydown}
-    class="inline-block w-full bg-gray-50 border resize-none border-gray-300 text-gray-900
-		 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500
-		 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-	 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+    class="inline-block w-full bg-gray-50 border resize-none border-gray-300 text-gray-900 
+    text-sm rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder="请输入您想与 Chat GPT 交流的内容"
     required
   />
-  <div class="flex flex-row items-center justify-between w-full mt-2">
-    <button
-      type="button"
-      on:click={onResetClick}
-      class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden 
-			text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br 
-			from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 
-			group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 
-			focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
-    >
-      <span
-        class="relative px-5 py-2 transition-all duration-75 ease-in bg-white rounded-full dark:bg-gray-900 group-hover:bg-opacity-0"
-      >
-        重置
-      </span>
-    </button>
+  <div class="flex flex-row items-center justify-between w-full my-2">
+    <button type="button" on:click={onResetClick} class="!w-20 regular-btn"> 重置 </button>
     <button
       type="button"
       on:click={onSendClick}
       class="text-white w-20 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 
-			hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 
-			dark:focus:ring-pink-800 font-medium rounded-full text-sm px-5 py-2.5 text-center"
+			hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300  
+      font-medium rounded-full text-sm px-5 py-2.5 text-center"
       >发送
     </button>
   </div>

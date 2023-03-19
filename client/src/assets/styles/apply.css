@@ -1,0 +1,4 @@
+.regular-btn {
+  @apply w-28 text-gray-900 bg-white border border-gray-300 
+  hover:bg-gray-100 font-medium rounded-full text-sm px-5 py-2.5;
+}
