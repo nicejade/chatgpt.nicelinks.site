@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: [
     './src/**/*.{html,js,svelte,ts}',
-    "./node_modules/flowbite/**/*.js"
+    './node_modules/flowbite/**/*.js'
   ],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/flowbite/**/*.js'], 
+  },
   theme: {
     extend: {},
     screens: {
