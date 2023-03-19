@@ -13,12 +13,21 @@
   let currentChatId: string = ''
   let chatTextArr: Array<object> = []
   let isLoading: boolean = false
+  let chatListNode: HTMLElement = null
+  let textareaNode: HTMLElement = null
+  const TEXTAREA_HEIGHT: number = 42
 
   const DEFAULT_CHAT: object = {
     from: 'assistant',
     text: '🎉 即可与 AI 对话，（可前往「设置」，使用您专属 OPEN AI KEY）',
     time: new Date().getTime(),
   }
+
+  onMount(() => {
+    chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
+    chatListNode = document.getElementById('chatlist')
+    textareaNode = document.getElementById('message')
+  })
 
   const injectUserChat = () => {
     chatTextArr = chatTextArr.concat({
@@ -31,7 +40,6 @@
 
   const scrollChatToBottom = async () => {
     await sleep(10)
-    const chatListNode = document.getElementById('chat-list')
     chatListNode.scrollTo({ top: 2e6, behavior: 'smooth' })
   }
 
@@ -64,10 +72,6 @@
       })
   }
 
-  onMount(() => {
-    chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
-  })
-
   const checkAndAskGPT = () => {
     if (!userMsgText.trim()) {
       errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.'
@@ -81,6 +85,8 @@
   const resetUserInput = async () => {
     await sleep(10)
     userMsgText = ''
+    textareaNode.style.height = `${TEXTAREA_HEIGHT}px`
+    textareaNode.focus()
   }
 
   /*----------------CallBackEvent----------------*/
@@ -105,6 +111,12 @@
       checkAndAskGPT()
     }
   }
+
+  const handleInput = (event) => {
+    textareaNode.style.height = `${TEXTAREA_HEIGHT}px`
+    const targetHeight = Math.max(event.target.scrollHeight - 15, TEXTAREA_HEIGHT)
+    textareaNode.style.height = `${targetHeight}px`
+  }
 </script>
 
 {#if errorMsgText !== ''}
@@ -114,7 +126,7 @@
 {/if}
 
 <section
-  id="chat-list"
+  id="chatlist"
   class="w-full p-2 mx-auto my-3 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
 >
   {#each chatTextArr as item, i}
@@ -137,7 +149,8 @@
     rows="1"
     bind:value={userMsgText}
     on:keydown={handleKeydown}
-    class="inline-block w-full bg-gray-50 border resize-none border-gray-300 text-gray-900 
+    on:input={handleInput}
+    class="inline-block w-full max-h-60 bg-gray-50 border resize-none border-gray-300 text-gray-900 
     text-sm rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder="请输入您想与 Chat GPT 交流的内容"
     required
