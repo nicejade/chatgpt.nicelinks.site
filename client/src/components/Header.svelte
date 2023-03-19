@@ -6,16 +6,16 @@
 
 <header class="flex flex-row items-center justify-between w-full h-16 px-4 shadow-md">
   <div class="inline-flex flex-row items-center h-full">
-    <img class="w-12 h-12 mr-2 logo" src={logo} alt={TITLE} />
-    <a class="inline-flex flex-col justify-center h-full md:hidden" href="/" rel="noreferrer">
-      <h1 class="inline-block text-xl font-semibold leading-none stroke-orange-50">
+    <a class="inline-flex flex-col justify-center h-full" href="/" rel="noreferrer">
+      <img class="w-12 h-12 mr-2 logo" src={logo} alt={TITLE} />
+      <h1 class="inline-block text-xl font-semibold leading-none md:hidden stroke-orange-50">
         {TITLE}
       </h1>
     </a>
   </div>
   <nav class="inline-flex flex-row items-center h-full">
-    <a href="https://nicelinks.site/friends" class="mr-4 text-lg" rel="noreferrer">友情链接</a>
-    <a href="/about" use:link class="mr-4 text-lg" rel="noreferrer">关于</a>
+    <a href="https://nicelinks.site/friends" class="text-lg" rel="noreferrer">友情链接</a>
+    <a href="/about" use:link class="ml-4 text-lg" rel="noreferrer">关于</a>
   </nav>
 </header>
 
