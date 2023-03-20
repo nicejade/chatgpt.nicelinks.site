@@ -5,12 +5,12 @@
   import GptChat from '../components/Item/GptChat.svelte'
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
-  import { OPEN_AI_KEY } from './../helper/constant'
-  import { getLocalStorage, sleep } from '../helper/utils'
+  import { sleep } from '../helper/utils'
+  import { getParentMessageId, setParentMessageId, getOpenAiKey } from './../helper/aside'
 
   let userMsgText: string = ''
   let errorMsgText: string = ''
-  let currentChatId: string = ''
+  let currentChatId: string = getParentMessageId()
   let chatTextArr: Array<object> = []
   let isLoading: boolean = false
   let chatListNode: HTMLElement = null
@@ -46,7 +46,7 @@
   const injectGptChat = () => {
     isLoading = true
     const params: object = {
-      key: getLocalStorage(OPEN_AI_KEY),
+      key: getOpenAiKey(),
       text: userMsgText,
       id: currentChatId,
     }
@@ -54,6 +54,7 @@
       .requestChatGPT(params)
       .then((res) => {
         currentChatId = res.id
+        setParentMessageId(currentChatId)
         chatTextArr.push({
           from: res.assistant,
           text: res.text,

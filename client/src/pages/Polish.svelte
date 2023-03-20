@@ -3,8 +3,9 @@
   import Alert from '../components/Alert.svelte'
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
-  import { TITLE, OPEN_AI_KEY } from './../helper/constant'
-  import { getLocalStorage, sleep } from '../helper/utils'
+  import { TITLE } from './../helper/constant'
+  import { sleep } from '../helper/utils'
+  import { getParentMessageId, setParentMessageId, getOpenAiKey } from './../helper/aside'
 
   export let desc: string = ''
   export let title: string = ''
@@ -39,13 +40,15 @@
   const injectGptChat = () => {
     isLoading = true
     const params: object = {
-      key: getLocalStorage(OPEN_AI_KEY),
+      key: getOpenAiKey(),
       text: createPromptText(),
+      id: getParentMessageId(),
     }
     apis
       .requestChatGPT(params)
       .then((res) => {
         gptReplyText = res.text
+        setParentMessageId(res.id)
       })
       .catch((err) => {
         console.log(`Something Error :`, err)

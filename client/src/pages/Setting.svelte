@@ -1,17 +1,11 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
-  import { OPEN_AI_KEY } from './../helper/constant'
-  import { setLocalStorage, getLocalStorage } from '../helper/utils'
+  import { getOpenAiKey, setOpenAiKey } from './../helper/aside'
 
-  let openAIKey: string = ''
-
-  onMount(() => {
-    openAIKey = getLocalStorage(OPEN_AI_KEY)
-  })
+  let openAIKey: string = getOpenAiKey()
 
   /*----------------CallBackEvent----------------*/
   const onSaveClick = () => {
-    setLocalStorage(OPEN_AI_KEY, openAIKey)
+    setOpenAiKey(openAIKey)
   }
 </script>
 
