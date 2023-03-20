@@ -25,7 +25,7 @@
 </script>
 
 <div
-  class="absolute flex p-4 mb-4 text-blue-800 rounded-lg w-max top-2 right-1/2 translate-x-2/4 bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+  class="absolute flex items-center p-4 mb-4 text-blue-800 rounded-lg w-max top-8 right-1/2 translate-x-2/4 bg-blue-50 "
   role="alert"
   id="alert-info"
   transition:fade={{ delay: 100, duration: 300 }}
@@ -43,7 +43,7 @@
     /></svg
   >
   <span class="sr-only">Info</span>
-  <div class="ml-3 text-sm font-medium">
+  <div class="ml-3 text-base font-medium">
     <slot />
   </div>
   <button

@@ -153,20 +153,13 @@
     on:keydown={handleKeydown}
     on:input={handleInput}
     class="inline-block w-full max-h-60 bg-gray-50 border resize-none border-gray-300 text-gray-900 
-    text-sm rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
+    text-base rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder="请输入您想与 Chat GPT 交流的内容"
     required
   />
   <div class="flex flex-row items-center justify-between w-full my-2">
     <button type="button" on:click={onResetClick} class="!w-20 regular-btn"> 重置 </button>
-    <button
-      type="button"
-      on:click={onSendClick}
-      class="text-white w-20 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 
-			hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300  
-      font-medium rounded-full text-sm px-5 py-2.5 text-center"
-      >发送
-    </button>
+    <button type="button" class="!w-20 primary-btn" on:click={onSendClick}>发送</button>
   </div>
 </div>
 

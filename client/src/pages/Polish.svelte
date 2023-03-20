@@ -56,7 +56,6 @@
       })
       .finally(() => {
         isLoading = false
-        resetUserInput()
       })
   }
 
@@ -81,28 +80,23 @@
     id="message"
     rows="10"
     bind:value={userMsgText}
-    class="inline-block w-full bg-gray-50 border resize-none border-gray-300 text-gray-900 
-    text-sm rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
+    class="inline-block w-full bg-gray-50 border border-gray-300 text-gray-900 
+    text-base rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder={desc}
     required
   />
   <div class="flex flex-row items-center justify-end w-full my-4">
-    <button
-      type="button"
-      on:click={onPolishClick}
-      class="text-white w-28 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 
-			hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300  
-      font-medium rounded-full text-sm px-5 py-2.5 text-center"
-      >一键润色
-    </button>
+    <button type="button" class="primary-btn" on:click={onPolishClick}>一键润色</button>
   </div>
   {#if isLoading}
     <Loading />
   {/if}
   {#if gptReplyText}
-    <div class="p-2 my-4 whitespace-pre-line bg-gray-100 rounded-lg shadow text-brand">
+    <div class="w-full p-2 my-4 whitespace-pre-line bg-gray-100 rounded-lg shadow text-brand">
       <h2 class="mb-2 text-lg font-bold">ChatGPT 润色结果：</h2>
-      {@html parse(gptReplyText)}
+      <article class="prose whitespace-pre-line md:prose-sm">
+        {@html parse(gptReplyText)}
+      </article>
     </div>
   {/if}
 </div>
