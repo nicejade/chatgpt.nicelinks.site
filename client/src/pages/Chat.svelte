@@ -108,8 +108,9 @@
   }
 
   const handleKeydown = (event) => {
-    if (event.keyCode === 13 && event.code === 'Enter') {
+    if (event.keyCode === 13 && event.code === 'Enter' && !event.shiftKey) {
       checkAndAskGPT()
+      event.preventDefault()
     }
   }
 
