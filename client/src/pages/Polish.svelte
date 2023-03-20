@@ -5,7 +5,7 @@
   import apis from '../helper/apis'
   import { TITLE } from './../helper/constant'
   import { sleep } from '../helper/utils'
-  import { getParentMessageId, setParentMessageId, getOpenAiKey } from './../helper/aside'
+  import { getParentMessageId, setParentMessageId, getOpenAiKey, parse } from './../helper/aside'
 
   export let desc: string = ''
   export let title: string = ''
@@ -76,7 +76,7 @@
   </Alert>
 {/if}
 
-<div class="flex flex-row flex-wrap items-center justify-between w-full mt-3">
+<div class="flex flex-row flex-wrap items-center justify-between w-full mt-4">
   <textarea
     id="message"
     rows="10"
@@ -86,7 +86,7 @@
     placeholder={desc}
     required
   />
-  <div class="flex flex-row items-center justify-end w-full my-3">
+  <div class="flex flex-row items-center justify-end w-full my-4">
     <button
       type="button"
       on:click={onPolishClick}
@@ -100,9 +100,9 @@
     <Loading />
   {/if}
   {#if gptReplyText}
-    <div class="p-2 my-3 whitespace-pre-line bg-gray-100 rounded-lg shadow text-brand">
+    <div class="p-2 my-4 whitespace-pre-line bg-gray-100 rounded-lg shadow text-brand">
       <h2 class="mb-2 text-lg font-bold">ChatGPT 润色结果：</h2>
-      {gptReplyText}
+      {@html parse(gptReplyText)}
     </div>
   {/if}
 </div>

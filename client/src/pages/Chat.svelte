@@ -19,7 +19,7 @@
 
   const DEFAULT_CHAT: object = {
     from: 'assistant',
-    text: '🎉 即可与 AI 对话，（可前往「设置」，使用您专属 OPEN AI KEY）',
+    text: '🎉 即可与 `AI` 对话，（可前往「[设置](/#/setting)」，使用您专属 OPEN AI KEY）',
     time: new Date().getTime(),
   }
 
@@ -129,7 +129,7 @@
 
 <section
   id="chatlist"
-  class="w-full p-2 mx-auto my-3 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
+  class="w-full p-2 mx-auto my-4 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
 >
   {#each chatTextArr as item, i}
     {#if item.from === 'user'}
@@ -172,7 +172,7 @@
 
 <style>
   .chat-list {
-    height: calc(100vh - 12rem);
+    height: calc(100vh - 13rem);
     overflow: scroll;
   }
 </style>
