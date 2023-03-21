@@ -4,7 +4,7 @@
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
   import { TITLE } from './../helper/constant'
-  import { sleep, gtagTracking } from '../helper/utils'
+  import { gtagTracking } from '../helper/utils'
   import { getParentMessageId, getOpenAiKey, parse } from './../helper/aside'
 
   export let desc: string = ''
@@ -17,9 +17,7 @@
 
   const checkAndAskGPT = () => {
     if (!userMsgText.trim()) {
-      errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.'
-      resetUserInput()
-      return
+      return (errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.')
     }
     injectGptChat()
   }
@@ -30,11 +28,6 @@
 
   const createPromptText = () => {
     return `请将下面这段文本润色一下：${userMsgText}`
-  }
-
-  const resetUserInput = async () => {
-    await sleep(10)
-    userMsgText = ''
   }
 
   const injectGptChat = () => {

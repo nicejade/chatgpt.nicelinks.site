@@ -19,7 +19,7 @@
 
   const DEFAULT_CHAT: object = {
     from: 'assistant',
-    text: '🎉 即刻与 [AI](https://nicelinks.site/tags/AI) 对话，（可前往「[设置](/#/setting)」，使用您专属 OPEN AI KEY）',
+    text: '🎉 即刻与 [AI](https://nicelinks.site/tags/AI) 对话，（可前往「[设置](/#/setting)」，使用您专属 `OPEN AI KEY`）',
     time: new Date().getTime(),
   }
 
@@ -77,12 +77,11 @@
 
   const checkAndAskGPT = () => {
     if (!userMsgText.trim()) {
-      errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.'
-      resetUserInput()
-      return
+      return (errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.')
     }
     injectUserChat()
     injectGptChat()
+    resetUserInput()
   }
 
   const resetUserInput = async () => {
@@ -95,7 +94,6 @@
   /*----------------CallBackEvent----------------*/
   const onSendClick = () => {
     checkAndAskGPT()
-    resetUserInput()
     gtagTracking('send', 'chat')
   }
 

@@ -44,6 +44,7 @@ module.exports = {
             },
             "ul li": {
               listStyleType: "disc",
+              marginLeft: 0,
             },
             "h2, h3": {
               marginTop: 0
@@ -72,6 +73,12 @@ module.exports = {
             "pre, code": {
               color: "#213547",
               backgroundColor: "#ffffff",
+            },
+            "p code": {
+              backgroundColor: "#f3f4f6",
+              color: "#f59e0b",
+              fontWeight: "400",
+              "border-radius": "0.25rem",
             },
             "code::before": {
               content: '""',
