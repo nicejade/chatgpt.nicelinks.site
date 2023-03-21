@@ -18,6 +18,9 @@ module.exports = {
       'brand': {
         DEFAULT: '#1e293b'
       },
+      'warn': {
+        DEFAULT: '#f59e0b'
+      },
       'link': {
         DEFAULT: '#0ea5e9'
       }

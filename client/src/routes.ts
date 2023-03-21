@@ -16,6 +16,10 @@ export default {
     })[0]
   }),
 
+  '/record': wrap({
+    asyncComponent: () => import('./pages/Record.svelte')
+  }),
+
   '/setting': wrap({
     asyncComponent: () => import('./pages/Setting.svelte')
   }),

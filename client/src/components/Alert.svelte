@@ -25,7 +25,7 @@
 </script>
 
 <div
-  class="absolute flex items-center p-4 mb-4 text-blue-800 rounded-lg w-max top-8 right-1/2 translate-x-2/4 bg-blue-50 "
+  class="absolute flex items-center p-4 mb-4 rounded-lg text-warn w-max top-8 right-1/2 translate-x-2/4 bg-blue-50 "
   role="alert"
   id="alert-info"
   transition:fade={{ delay: 100, duration: 300 }}
@@ -49,7 +49,7 @@
   <button
     type="button"
     data-dismiss-target="#alert-info"
-    class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700"
+    class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-warn rounded-lg p-1.5 hover:bg-blue-200 inline-flex h-8 w-8"
     aria-label="Close"
     on:click={onCloseClick}
   >

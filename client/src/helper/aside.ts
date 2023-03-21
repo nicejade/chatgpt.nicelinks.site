@@ -1,5 +1,5 @@
 import { marked } from 'marked'
-import { OPEN_AI_KEY, PARENT_MSG_ID } from './constant'
+import { OPEN_AI_KEY, PARENT_MSG_ID, IS_SAVE_CHAT, CHAT_RECORD } from './constant'
 import { getLocalStorage, setLocalStorage } from './utils'
 
 const renderer = new marked.Renderer()
@@ -32,3 +32,20 @@ export const getParentMessageId = () => {
   return getLocalStorage(PARENT_MSG_ID)
 }
 
+export const setIsSaveChat = (val: boolean) => {
+  setLocalStorage(IS_SAVE_CHAT, val)
+}
+
+export const getIsSaveChat = () => {
+  return getLocalStorage(IS_SAVE_CHAT)
+}
+
+export const setChatRecord = (obj: object) => {
+  const chatRecordArr = getLocalStorage(CHAT_RECORD) || []
+  chatRecordArr.push(obj)
+  setLocalStorage(CHAT_RECORD, JSON.stringify(chatRecordArr))
+}
+
+export const getChatRecord = () => {
+  return getLocalStorage(CHAT_RECORD)
+}

@@ -2,6 +2,8 @@ export const TITLE = '素问智聊斋'
 
 export const OPEN_AI_KEY = 'open-ai-key'
 export const PARENT_MSG_ID = 'parent-msg-id'
+export const IS_SAVE_CHAT = 'is-save-chat'
+export const CHAT_RECORD = 'chat-record'
 
 export const APP_CONF_ARR = [
   {

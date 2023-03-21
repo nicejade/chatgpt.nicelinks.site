@@ -1,12 +1,19 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import { push } from 'svelte-spa-router'
   import Alert from '../components/Alert.svelte'
   import UserChat from '../components/Item/UserChat.svelte'
   import GptChat from '../components/Item/GptChat.svelte'
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
   import { sleep, gtagTracking } from '../helper/utils'
-  import { getParentMessageId, setParentMessageId, getOpenAiKey } from './../helper/aside'
+  import {
+    getParentMessageId,
+    setParentMessageId,
+    getOpenAiKey,
+    setChatRecord,
+    getIsSaveChat,
+  } from './../helper/aside'
 
   let userMsgText: string = ''
   let errorMsgText: string = ''
@@ -16,6 +23,13 @@
   let chatListNode: HTMLElement = null
   let textareaNode: HTMLElement = null
   const TEXTAREA_HEIGHT: number = 46
+
+  interface GptReply {
+    id: string
+    role: string
+    text: string
+    parentMessageId: string
+  }
 
   const DEFAULT_CHAT: object = {
     from: 'assistant',
@@ -43,6 +57,14 @@
     chatListNode.scrollTo({ top: 2e6, behavior: 'smooth' })
   }
 
+  const saveChatContent = (userAsk: object, gptReply: GptReply) => {
+    if (!getIsSaveChat()) return
+
+    const { id, parentMessageId, role, text } = gptReply
+    setChatRecord({ from: 'user', ...userAsk })
+    setChatRecord({ id, parentMessageId, role, text })
+  }
+
   const injectGptChat = () => {
     isLoading = true
     const params: object = {
@@ -55,6 +77,7 @@
       .then((res) => {
         currentChatId = res.id
         setParentMessageId(currentChatId)
+        saveChatContent(params, res)
         chatTextArr.push({
           from: res.assistant,
           text: res.text,
@@ -102,6 +125,11 @@
     gtagTracking('reset', 'chat')
   }
 
+  const onRecordClick = () => {
+    push('/record')
+    gtagTracking('record', 'chat')
+  }
+
   const handleEdit = (event) => {
     userMsgText = event.detail
     gtagTracking('reedit', 'chat')
@@ -139,7 +167,7 @@
 >
   {#each chatTextArr as item, i}
     {#if item.from === 'user'}
-      <UserChat params={item} on:edit={handleEdit} />
+      <UserChat params={item} hidden={false} on:edit={handleEdit} />
     {:else}
       <GptChat params={item} />
     {/if}
@@ -164,7 +192,8 @@
     required
   />
   <div class="flex flex-row items-center justify-between w-full my-2">
-    <button type="button" on:click={onResetClick} class="!w-20 regular-btn"> 重置 </button>
+    <button type="button" on:click={onResetClick} class="!w-20 regular-btn">重置</button>
+    <button type="button" on:click={onRecordClick} class="regular-btn">聊天记录</button>
     <button type="button" class="!w-20 primary-btn" on:click={onSendClick}>发送</button>
   </div>
 </div>
