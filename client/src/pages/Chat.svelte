@@ -19,7 +19,7 @@
 
   const DEFAULT_CHAT: object = {
     from: 'assistant',
-    text: '🎉 即可与 [AI](https://nicelinks.site/tags/AI) 对话，（可前往「[设置](/#/setting)」，使用您专属 OPEN AI KEY）',
+    text: '🎉 即刻与 [AI](https://nicelinks.site/tags/AI) 对话，（可前往「[设置](/#/setting)」，使用您专属 OPEN AI KEY）',
     time: new Date().getTime(),
   }
 
@@ -71,7 +71,6 @@
       .finally(() => {
         gtagTracking('request-send', 'chat')
         isLoading = false
-        resetUserInput()
         scrollChatToBottom()
       })
   }
@@ -96,6 +95,7 @@
   /*----------------CallBackEvent----------------*/
   const onSendClick = () => {
     checkAndAskGPT()
+    resetUserInput()
     gtagTracking('send', 'chat')
   }
 
