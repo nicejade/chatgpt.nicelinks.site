@@ -5,7 +5,7 @@
   import GptChat from '../components/Item/GptChat.svelte'
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
-  import { sleep } from '../helper/utils'
+  import { sleep, gtagTracking } from '../helper/utils'
   import { getParentMessageId, setParentMessageId, getOpenAiKey } from './../helper/aside'
 
   let userMsgText: string = ''
@@ -15,11 +15,11 @@
   let isLoading: boolean = false
   let chatListNode: HTMLElement = null
   let textareaNode: HTMLElement = null
-  const TEXTAREA_HEIGHT: number = 42
+  const TEXTAREA_HEIGHT: number = 46
 
   const DEFAULT_CHAT: object = {
     from: 'assistant',
-    text: '🎉 即可与 `AI` 对话，（可前往「[设置](/#/setting)」，使用您专属 OPEN AI KEY）',
+    text: '🎉 即可与 [AI](https://nicelinks.site/tags/AI) 对话，（可前往「[设置](/#/setting)」，使用您专属 OPEN AI KEY）',
     time: new Date().getTime(),
   }
 
@@ -61,12 +61,15 @@
           time: new Date().getTime(),
         })
         chatTextArr = chatTextArr
+        gtagTracking('request-success', 'chat')
       })
       .catch((err) => {
+        gtagTracking('request-failure', 'chat')
         console.log(`Something Error :`, err)
         errorMsgText = err?.message
       })
       .finally(() => {
+        gtagTracking('request-send', 'chat')
         isLoading = false
         resetUserInput()
         scrollChatToBottom()
@@ -93,23 +96,28 @@
   /*----------------CallBackEvent----------------*/
   const onSendClick = () => {
     checkAndAskGPT()
+    gtagTracking('send', 'chat')
   }
 
   const onResetClick = () => {
     resetUserInput()
+    gtagTracking('reset', 'chat')
   }
 
   const handleEdit = (event) => {
     userMsgText = event.detail
+    gtagTracking('reedit', 'chat')
   }
 
   const handleClose = () => {
     errorMsgText = ''
+    gtagTracking('close-alert', 'chat')
   }
 
   const handleKeydown = (event) => {
     if (event.keyCode === 13 && event.code === 'Enter' && !event.shiftKey) {
       checkAndAskGPT()
+      gtagTracking('key-enter', 'chat')
       event.preventDefault()
     }
   }

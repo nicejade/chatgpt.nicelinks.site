@@ -4,7 +4,7 @@
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
   import { TITLE } from './../helper/constant'
-  import { sleep } from '../helper/utils'
+  import { sleep, gtagTracking } from '../helper/utils'
   import { getParentMessageId, setParentMessageId, getOpenAiKey, parse } from './../helper/aside'
 
   export let desc: string = ''
@@ -62,6 +62,7 @@
   /*----------------CallBackEvent----------------*/
   const onPolishClick = () => {
     checkAndAskGPT()
+    gtagTracking('polish-text', 'polish')
   }
 
   const handleClose = () => {

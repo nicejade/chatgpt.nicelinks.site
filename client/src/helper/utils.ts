@@ -22,3 +22,11 @@ export const removeLocalStorage = (name) => {
   if (!name) return
   window.localStorage.removeItem(name)
 }
+
+export const gtagTracking = (action: string, category: string, label: string = '') => {
+  const gtag = window?.gtag || (() => { })
+  gtag('event', action, {
+    event_category: category,
+    event_label: label || action,
+  })
+}
