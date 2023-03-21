@@ -5,7 +5,7 @@
   import apis from '../helper/apis'
   import { TITLE } from './../helper/constant'
   import { sleep, gtagTracking } from '../helper/utils'
-  import { getParentMessageId, setParentMessageId, getOpenAiKey, parse } from './../helper/aside'
+  import { getParentMessageId, getOpenAiKey, parse } from './../helper/aside'
 
   export let desc: string = ''
   export let title: string = ''
@@ -48,7 +48,6 @@
       .requestChatGPT(params)
       .then((res) => {
         gptReplyText = res.text
-        setParentMessageId(res.id)
       })
       .catch((err) => {
         console.log(`Something Error :`, err)
