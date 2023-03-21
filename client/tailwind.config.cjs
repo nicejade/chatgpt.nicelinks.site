@@ -11,7 +11,8 @@ module.exports = {
   },
   theme: {
     screens: {
-      'md': {'max': '767px'},
+      'sm': {'max': '640px'},
+      'md': {'max': '768px'},
     },
     colors: {
       'brand': {
@@ -22,19 +23,24 @@ module.exports = {
       }
     },
     extend: {
+      maxWidth: {
+        "tiny": '16rem'
+      },
       typography: {
         DEFAULT: {
           css: {
-            "p, li, pre, code, dl": { 
+            "p, li, pre, code": { 
               fontSize: '1rem',
-              margin: 0,
+              margin: '0 !important',
+              lineHeight: "1.5rem",
             },
-            "ul, ol": {
-              lineHeight: "1rem",
+            "dl, ul, ol": {
+              margin: '0 !important',
+              lineHeight: "0",
             },
             "ol li": {
               listStyleType: "decimal",
-              marginLeft: "1.6rem"
+              marginLeft: 0
             },
             "ul li": {
               listStyleType: "disc",
@@ -44,10 +50,6 @@ module.exports = {
             },
             "h4, h5, h6": {
               fontSize: '1.25rem',
-            },
-            pre: {
-              color: "#2f2f2f",
-              backgroundColor: "#2f2f2f",
             },
             "pre code::before": {
               "padding-left": "unset",
@@ -63,11 +65,13 @@ module.exports = {
               color: "#0ea5e9",
               textDecoration: 'none',
             },
-            code: {
-              backgroundColor: "#f3f4f6",
-              color: "#f59e0b",
-              fontWeight: "400",
-              "border-radius": "0.25rem",
+            "pre": {
+              "border": "1px solid #e8e8e8",
+              "border-radius": "0.5rem",
+            },
+            "pre, code": {
+              color: "#213547",
+              backgroundColor: "#ffffff",
             },
             "code::before": {
               content: '""',
