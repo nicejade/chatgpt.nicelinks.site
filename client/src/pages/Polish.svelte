@@ -1,14 +1,11 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import Alert from '../components/Alert.svelte'
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
-  import { TITLE } from './../helper/constant'
   import { gtagTracking } from '../helper/utils'
-  import { getParentMessageId, getOpenAiKey, parse } from './../helper/aside'
+  import { parse, getParentMessageId, getOpenAiKey } from './../helper/aside'
 
   export let desc: string = ''
-  export let title: string = ''
 
   let userMsgText: string = ''
   let gptReplyText: string = ''
@@ -21,10 +18,6 @@
     }
     injectGptChat()
   }
-
-  onMount(() => {
-    window.document.title = `${title} - ${TITLE}`
-  })
 
   const createPromptText = () => {
     return `请将下面这段文本润色一下：${userMsgText}`

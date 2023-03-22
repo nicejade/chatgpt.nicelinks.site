@@ -1,6 +1,6 @@
 import { marked } from 'marked'
-import { OPEN_AI_KEY, PARENT_MSG_ID, IS_SAVE_CHAT, CHAT_RECORD } from './constant'
 import { getLocalStorage, setLocalStorage } from './utils'
+import { TITLE, ROUTE_TITME_MAP, OPEN_AI_KEY, PARENT_MSG_ID, IS_SAVE_CHAT, CHAT_RECORD } from './constant'
 
 const renderer = new marked.Renderer()
 const linkRenderer = renderer.link
@@ -15,6 +15,11 @@ marked.setOptions({
 })
 
 export const parse = marked.parse
+
+export const setPageMeta = (route: string) => {
+  const title: string = ROUTE_TITME_MAP[route]
+  window.document.title = title ? `${title} - ${TITLE}` : TITLE
+}
 
 export const getOpenAiKey = () => {
   return getLocalStorage(OPEN_AI_KEY)

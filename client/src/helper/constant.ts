@@ -25,3 +25,10 @@ export const APP_CONF_ARR = [
     enable: false,
   },
 ]
+
+export const ROUTE_TITME_MAP = {
+  '/chat': '与 AI 对话',
+  '/polish': '润色文案',
+  '/record': '聊天记录',
+  '/setting': '个人设置',
+}
