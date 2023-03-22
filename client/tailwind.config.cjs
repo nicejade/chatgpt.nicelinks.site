@@ -27,7 +27,7 @@ module.exports = {
     },
     extend: {
       maxWidth: {
-        "tiny": '16rem'
+        "tiny": '15rem'
       },
       typography: {
         DEFAULT: {

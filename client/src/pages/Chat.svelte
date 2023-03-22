@@ -111,7 +111,6 @@
     await sleep(10)
     userMsgText = ''
     textareaNode.style.height = `${TEXTAREA_HEIGHT}px`
-    textareaNode.focus()
   }
 
   /*----------------CallBackEvent----------------*/
@@ -163,7 +162,7 @@
 
 <section
   id="chatlist"
-  class="w-full p-2 mx-auto my-4 overflow-scroll chat-list bg-gradient-to-b from-gray-50"
+  class="flex-col pb-24 mx-auto page-warpper pt-14 bg-gradient-to-b from-gray-50"
 >
   {#each chatTextArr as item, i}
     {#if item.from === 'user'}
@@ -178,7 +177,7 @@
 </section>
 
 <div
-  class="fixed bottom-0 left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-4 mx-auto"
+  class="fixed bottom-0 left-0 right-0 flex flex-col items-center justify-between w-full max-w-2xl px-4 py-2 mx-auto bg-white rounded-t-lg shadow-inner"
 >
   <textarea
     id="message"
@@ -186,21 +185,14 @@
     bind:value={userMsgText}
     on:keydown={handleKeydown}
     on:input={handleInput}
-    class="inline-block w-full max-h-60 bg-gray-50 border resize-none border-gray-300 text-gray-900 
+    class="inline-block w-full max-h-60 bg-gray-50 border resize-none border-gray-300 text-gray-600 
     text-base rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder="请输入您想与 Chat GPT 交流的内容"
     required
   />
-  <div class="flex flex-row items-center justify-between w-full my-2">
+  <div class="flex flex-row items-center justify-between w-full mt-3">
     <button type="button" on:click={onResetClick} class="!w-20 regular-btn">重置</button>
     <button type="button" on:click={onRecordClick} class="regular-btn">聊天记录</button>
     <button type="button" class="!w-20 primary-btn" on:click={onSendClick}>发送</button>
   </div>
 </div>
-
-<style>
-  .chat-list {
-    height: calc(100vh - 13rem);
-    overflow: scroll;
-  }
-</style>

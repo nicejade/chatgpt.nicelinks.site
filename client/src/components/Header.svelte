@@ -9,7 +9,9 @@
   }
 </script>
 
-<header class="flex flex-row items-center justify-between w-full h-16 px-4 shadow-md">
+<header
+  class="fixed top-0 left-0 z-50 flex flex-row items-center justify-between w-full h-16 px-4 bg-white shadow-md"
+>
   <a
     class="flex flex-row items-center justify-center"
     on:click={() => report('title')}

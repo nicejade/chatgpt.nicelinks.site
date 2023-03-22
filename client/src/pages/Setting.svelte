@@ -1,6 +1,7 @@
 <script lang="ts">
   import { gtagTracking } from '../helper/utils'
   import { getOpenAiKey, setOpenAiKey, getIsSaveChat, setIsSaveChat } from './../helper/aside'
+  import { version } from './../../package.json'
 
   let openAIKey: string = getOpenAiKey()
   let isSaveChat: boolean = getIsSaveChat() || false
@@ -17,7 +18,7 @@
   }
 </script>
 
-<div class="flex flex-col items-center justify-between w-full mt-4 divide-y divide-solid">
+<div class="flex-col items-center justify-between divide-y page-warpper divide-solid">
   <div class="flex flex-row items-center justify-between w-full pb-4 md:flex-wrap">
     <label for="open-ai-key" class="w-56 font-bold md:pb-2">设置 OPEN AI KEY</label>
     <input
@@ -25,7 +26,7 @@
       id="open-ai-key"
       bind:value={openAIKey}
       on:input={handleInput}
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-base 
+      class="bg-gray-50 border border-gray-300 text-gray-600 text-base 
 		  rounded-lg focus:ring-rose-500 focus:border-rose-500 w-full p-2.5"
       placeholder="请填写 OPEN AI KEY"
       required
@@ -41,5 +42,9 @@
         after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-link"
       />
     </label>
+  </div>
+  <div class="flex flex-row items-center justify-between w-full py-4">
+    <label for="open-ai-key" class="block w-full text-lg font-bold">当前版本</label>
+    <p class="text-gray-600">{`V${version}`}</p>
   </div>
 </div>

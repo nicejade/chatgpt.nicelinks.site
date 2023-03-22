@@ -17,7 +17,7 @@
   })
 </script>
 
-<div class="flex flex-col justify-between w-full mt-4 items-left">
+<div class="flex-col justify-between page-warpper items-left">
   <div class="m-auto my-4">
     <img class="w-16" src="https://chatgpt.nicelinks.site/logo.svg" alt={TITLE} />
   </div>
@@ -153,6 +153,8 @@
   <h2 id="执照" class="my-4 text-2xl font-medium">执照</h2>
   <p><a href="http://opensource.org/licenses/MIT">MIT</a></p>
   <p>版权所有 (c) 2023-至今，<a href="https://nicelinks.site">倾城之链</a>。</p>
+
+  <br />
+  <h2 id="执照" class="my-4 text-2xl font-medium">留言探讨</h2>
+  <div id="waline" />
 </div>
-<br />
-<div id="waline" />

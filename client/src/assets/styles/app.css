@@ -19,3 +19,8 @@ a {
 a:hover {
   color: #fb7185;
 }
+
+/* Fix waline wl-edit */
+#waline #wl-edit {
+  box-sizing: border-box !important;
+}

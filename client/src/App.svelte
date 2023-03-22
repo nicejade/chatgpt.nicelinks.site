@@ -11,6 +11,6 @@
 </script>
 
 <Header />
-<main class="flex flex-col w-full h-full max-w-2xl px-4 m-auto mx-auto">
+<main class="flex flex-col w-full h-full max-w-2xl m-auto mx-auto">
   <Router {routes} on:routeLoaded={routeLoaded} />
 </main>

@@ -1,5 +1,9 @@
+.page-warpper {
+  @apply flex w-full mt-4 pt-[64px] px-4 overflow-x-hidden;
+}
+
 .regular-btn {
-  @apply w-28 text-gray-900 bg-white border border-gray-300
+  @apply w-28 text-gray-600 bg-white border border-gray-300
   hover:bg-gray-100 font-bold rounded-full text-base px-5 py-2.5;
 }
 

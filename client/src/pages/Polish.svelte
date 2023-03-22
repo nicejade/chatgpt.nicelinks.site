@@ -61,12 +61,12 @@
   </Alert>
 {/if}
 
-<div class="flex flex-row flex-wrap items-center justify-between w-full mt-4">
+<div class="flex-row flex-wrap items-center justify-between page-warpper">
   <textarea
     id="message"
     rows="10"
     bind:value={userMsgText}
-    class="inline-block w-full bg-gray-50 border border-gray-300 text-gray-900 
+    class="inline-block w-full bg-gray-50 border border-gray-300 text-gray-600 
     text-base rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder={desc}
     required

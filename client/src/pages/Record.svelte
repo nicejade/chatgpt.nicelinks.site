@@ -5,7 +5,7 @@
   let chatRecordArr = getChatRecord()
 </script>
 
-<section class="w-full p-2 mx-auto my-4 overflow-scroll chat-list bg-gradient-to-b from-gray-50">
+<section class="flex-col mx-auto page-warpper bg-gradient-to-b from-gray-50">
   {#if chatRecordArr && chatRecordArr.length > 0}
     {#each chatRecordArr as item}
       {#if item.from === 'user'}
