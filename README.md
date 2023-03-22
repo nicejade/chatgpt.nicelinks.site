@@ -8,13 +8,13 @@
 
 <div align="center">
   <strong>
-    <a href="https://chatgpt.nicelinks.site/">素问智聊斋</a>，非官方 ChatGPT 在线客户端，旨在提供更便捷的 ChatGPT 访问体验；它基于非官方 <a href="https://github.com/transitive-bullshit/chatgpt-api">ChatGPT API</a>、<a href="https://nicelinks.site/post/62a9c2ad90509e23cea772c0">Svelte</a>、<a href="https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7">TailwindCSS</a>、<a href="https://nicelinks.site/post/6010e1b10c71de1fb957b64e">Vite</a> 和 NodeJS 所搭建，只要输入 OPENAI API KEY 就可以使用。
+    <a href="https://chatgpt.nicelinks.site/">素问智聊斋</a>，非官方 ChatGPT 在线客户端，旨在提供更便捷的 ChatGPT 访问体验；它基于非官方 <a href="https://github.com/transitive-bullshit/chatgpt-api">ChatGPT API</a>、<a href="https://nicelinks.site/post/62a9c2ad90509e23cea772c0">Svelte</a>、<a href="https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7">TailwindCSS</a>、<a href="https://nicelinks.site/post/6010e1b10c71de1fb957b64e">Vite</a> 和 NodeJS 所搭建，无需账号，零配置，即可与 ChatGPT 畅聊；支持自定义 OPENAI API KEY。
   </strong>
 </div>
 
 ## 目标与哲学
 
-[OpenAI](https://nicelinks.site/post/6391e22878b7a1291995ff86) 于 2022 年 11 月推出的超级对话模型 **ChatGPT**， 受到来自世界各地的认可和赞誉，令人印象深刻。然而，由于一些原因，如果没有正确搭建相应的环境（🪜），ChatGPT 在中国地区就无法正常使用。鉴于此，搭建了这个服务，以便用户能够方便地使用 ChatGPT。需要指出的是，使用者首先需要在 OpenAI 官网上注册、登录、申请 `API KEY`，才可以使用本服务。此外，为了保障用户的数据安全，本服务的操作过程中不会存储任何使用者的数据，因此可以放心使用（备注：这段介绍有使用本服务加以润色）。
+[OpenAI](https://nicelinks.site/post/6391e22878b7a1291995ff86) 于 2022 年 11 月推出的超级对话模型 **ChatGPT**， 受到来自世界各地的认可和赞誉，令人印象深刻。然而，由于一些原因，如果没有正确搭建相应的环境（🪜），ChatGPT 在中国地区就无法正常使用。鉴于此，搭建了这个服务，以便用户能够方便地使用 ChatGPT。当然，条件允许您可前往 OpenAI 官网上注册、登录、申请专属 `API KEY`。此外，为了保障用户的数据安全，本服务的操作过程中不会存储任何使用者的数据，因此可以放心使用（备注：这段介绍有使用本服务加以润色）。
 
 ## 访问地址
 
