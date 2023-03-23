@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "description": "素问智聊斋，客户端。",
   "private": true,
   "version": "0.5.0",
   "type": "module",

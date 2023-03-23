@@ -1,7 +1,6 @@
 {
   "name": "chatgpt.nicelinks.site",
-  "version": "0.1.0",
-  "description": "ChatGPT For Chinese.",
+  "description": "素问智聊斋，非官方 ChatGPT 在线客户端，旨在提供更便捷的 ChatGPT 访问体验；它基于非官方 ChatGPT API、Svelte、TailwindCSS、Vite 和 NodeJS 所搭建；无需账号，零配置，即可与 ChatGPT 畅聊；支持自定义 OPENAI API KEY。",
   "scripts": {
     "deploy": "pm2 start ecosystem.config.js --env production",
     "redeploy": "git pull && pm2 restart ecosystem.config.js --env production",
@@ -23,5 +22,15 @@
     "lint-staged": "^13.1.2",
     "onchange": "^7.1.0",
     "prettier": "^2.8.4"
-  }
+  },
+  "keywords": [
+    "素问智聊斋",
+    "ChatGPT",
+    "客户端",
+    "NICE LINKS",
+    "Svelte",
+    "TailwindCSS",
+    "Vite",
+    "Fastify"
+  ]
 }

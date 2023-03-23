@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "description": "",
+  "description": "素问智聊斋，服务端。",
   "version": "0.1.0",
   "author": "nicejade",
   "main": "index.ts",
