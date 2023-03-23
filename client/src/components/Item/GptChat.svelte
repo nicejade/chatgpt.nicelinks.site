@@ -34,7 +34,7 @@
 <div class="flex flex-row justify-start mb-4">
   <img class="w-10 h-10 m-1 rounded-full ring-2 ring-gray-300" src={logo} alt={TITLE} />
   <article
-    class="max-w-lg px-4 mt-3 prose whitespace-pre-line md:max-w-xs sm:max-w-tiny md:prose-sm"
+    class="max-w-lg pl-3 mt-3 prose whitespace-pre-line md:max-w-xs sm:max-w-tiny md:prose-sm"
   >
     {@html parse(params.text)}
   </article>
