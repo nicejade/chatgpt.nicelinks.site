@@ -32,7 +32,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            "p, li, pre, code": { 
+            "li, pre, code": { 
               fontSize: '1rem',
               margin: '0 !important',
               lineHeight: "1.5rem",
@@ -48,6 +48,10 @@ module.exports = {
             "ul li": {
               listStyleType: "disc",
               marginLeft: 0,
+            },
+            "p": {
+              "margin-top": "1rem",
+              "margin-bottom": "1rem"
             },
             "h2, h3": {
               marginTop: 0
