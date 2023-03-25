@@ -4,10 +4,10 @@
 
 .regular-btn {
   @apply w-28 text-gray-600 bg-white border border-gray-300
-  hover:bg-gray-100 font-bold rounded-full text-base px-4 py-2.5;
+  hover:bg-gray-100 font-bold rounded-full text-base px-4 py-2 md:text-sm;
 }
 
 .primary-btn {
   @apply text-white w-28 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 
-  hover:bg-gradient-to-br  font-medium rounded-full text-base px-4 py-2.5 text-center;
+  hover:bg-gradient-to-br  font-medium rounded-full text-base px-4 py-2 text-center md:text-sm;
 }

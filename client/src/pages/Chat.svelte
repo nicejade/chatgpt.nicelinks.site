@@ -22,7 +22,8 @@
   let isLoading: boolean = false
   let chatListNode: HTMLElement = null
   let textareaNode: HTMLElement = null
-  const TEXTAREA_HEIGHT: number = 46
+  const IS_MOBILE = window.innerWidth <= 768
+  const TEXTAREA_HEIGHT: number = IS_MOBILE ? 38 : 42
 
   interface GptReply {
     id: string
@@ -149,7 +150,7 @@
 
   const handleInput = (event) => {
     textareaNode.style.height = `${TEXTAREA_HEIGHT}px`
-    const targetHeight = Math.max(event.target.scrollHeight - 15, TEXTAREA_HEIGHT)
+    const targetHeight = Math.max(event.target.scrollHeight, TEXTAREA_HEIGHT)
     textareaNode.style.height = `${targetHeight}px`
   }
 </script>
@@ -185,8 +186,7 @@
     bind:value={userMsgText}
     on:keydown={handleKeydown}
     on:input={handleInput}
-    class="inline-block w-full max-h-60 bg-gray-50 border resize-none border-gray-300 text-gray-600 
-    text-base rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
+    class="inline-block w-full px-2 text-base text-gray-600 border border-gray-300 rounded-lg resize-none md:text-sm max-h-60 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder="请输入您想与 Chat GPT 交流的内容"
     required
   />

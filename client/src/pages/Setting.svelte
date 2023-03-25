@@ -18,22 +18,25 @@
   }
 </script>
 
-<div class="flex-col items-center justify-between divide-y page-warpper divide-solid">
-  <div class="flex flex-row items-center justify-between w-full pb-4 md:flex-wrap">
-    <label for="open-ai-key" class="w-56 font-bold md:pb-2">设置 OPEN AI KEY</label>
+<div class="flex-col items-center justify-between text-base divide-y page-warpper divide-solid">
+  <div
+    class="flex flex-row items-center justify-between w-full pb-4 text-base md:flex-wrap md:text-sm"
+  >
+    <label for="open-ai-key" class="w-56 text-base font-bold md:pb-2 md:text-sm"
+      >设置 OPEN AI KEY</label
+    >
     <input
       type="text"
       id="open-ai-key"
       bind:value={openAIKey}
       on:input={handleInput}
-      class="bg-gray-50 border border-gray-300 text-gray-600 text-base 
-		  rounded-lg focus:ring-rose-500 focus:border-rose-500 w-full p-2.5"
+      class="w-full p-2 text-gray-600 border border-gray-300 rounded-lg bg-gray-50 focus:ring-rose-500 focus:border-rose-500 md:text-sm"
       placeholder="请填写 OPEN AI KEY"
       required
     />
   </div>
   <div class="flex flex-row items-center justify-between w-full py-4">
-    <label for="open-ai-key" class="block w-full text-lg font-bold">保存对话内容</label>
+    <label for="open-ai-key" class="block w-full font-bold md:text-sm">保存对话内容</label>
     <label class="relative inline-flex items-center cursor-pointer">
       <input type="checkbox" bind:checked={isSaveChat} class="sr-only peer" />
       <div
@@ -44,7 +47,7 @@
     </label>
   </div>
   <div class="flex flex-row items-center justify-between w-full py-4">
-    <label for="open-ai-key" class="block w-full text-lg font-bold">当前版本</label>
+    <label for="open-ai-key" class="block w-full font-bold md:text-sm">当前版本</label>
     <p class="text-gray-600">{`V${version}`}</p>
   </div>
 </div>

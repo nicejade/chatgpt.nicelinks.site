@@ -17,8 +17,8 @@
       class="inline-block w-full p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 
       {item.enable ? '' : 'pointer-events-none opacity-50'}"
     >
-      <h2 class="mb-2 text-lg font-bold tracking-tight text-gray-600">{item.title}</h2>
-      <p class="text-base font-normal text-gray-700">{item.desc}</p>
+      <h2 class="mb-2 text-lg font-bold tracking-tight text-gray-600 md:text-base">{item.title}</h2>
+      <p class="text-base font-normal text-gray-700 md:text-sm">{item.desc}</p>
     </a>
   {/each}
 </div>

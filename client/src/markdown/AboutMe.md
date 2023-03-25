@@ -1,5 +1,5 @@
 
-**[素问智聊斋](https://chatgpt.nicelinks.site/)** ，非官方 ChatGPT 在线客户端，旨在提供更便捷的 ChatGPT 访问体验；它基于非官方 [ChatGPT API](https://github.com/transitive-bullshit/chatgpt-api)、[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0)、[TailwindCSS](https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7)、[Vite](https://nicelinks.site/post/6010e1b10c71de1fb957b64e) 和 NodeJS 所搭建，无需账号，零配置，即可与 ChatGPT 畅聊；支持自定义 OPENAI API KEY。
+**[素问智聊斋](https://chatgpt.nicelinks.site/)** ，非官方 ChatGPT 在线客户端，旨在提供更便捷的 [ChatGPT](https://nicelinks.site/post/6391e22878b7a1291995ff86) 访问体验；它基于非官方 [ChatGPT API](https://github.com/transitive-bullshit/chatgpt-api)、[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0)、[TailwindCSS](https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7)、[Vite](https://nicelinks.site/post/6010e1b10c71de1fb957b64e) 和 NodeJS 所搭建，无需账号，零配置，即可与 ChatGPT 畅聊；支持自定义 OPENAI API KEY。
 
 ## 目标与哲学
 
@@ -32,11 +32,11 @@
 
 ## 技术选型
 
-[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0) 、 [TailwindCSS](https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7) 、 [Vite](https://nicelinks.site/post/6010e1b10c71de1fb957b64e) 、Fastify、TypeScript 等，具为当前所流行，并且喜爱的技术栈 / 工具；其中 Fastify、Svelte 尚未使用过值得一提；
+[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0) 、 [TailwindCSS](https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7) 、 [Vite](https://nicelinks.site/post/6010e1b10c71de1fb957b64e) 、[Fastify](https://nicelinks.site/post/6400b3eafe46ca437e0ac36e)、[TypeScript](https://nicelinks.site/post/6278fdeaac00ce3f9b11a8ef) 等，具为当前所流行，并且喜爱的技术栈 / 工具；其中 Fastify、Svelte 尚未使用过值得一提；
 
 #### 什么是 Svelte？
 
-[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0) 是 [另一个前端框架，类似于 React](https://blog.logrocket.com/should-you-switch-react-svelte/) 或 Vue。像这两个一样，你可以使用 Svelte 来制作单页应用程序。然而，Svelte 有一些特性使其与其他框架截然不同。
+[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0) 是 [另一个前端框架，类似于 React](https://blog.logrocket.com/should-you-switch-react-svelte/) 或 [Vue](https://nicelinks.site/post/5b1a221c0526c920d6dfaada)。像这两个一样，你可以使用 Svelte 来制作单页应用程序。然而，Svelte 有一些特性使其与其他框架截然不同。
 
 例如，与其他框架不同，Svelte 主要是一个编译框架；Svelte 库的大部分是运行时依赖项 `devDependency`，而不是运行时依赖项。这有助于使最终应用程序更小、更快，以便客户端下载。
 
@@ -57,12 +57,13 @@ Svelte 还通过不需要类或函数来声明组件来提供易用性。每个 
 ## 其他作品
 
 * [倾城之链](https://nicelinks.site/)
+* [曼妙句子](https://read.lovejade.cn/)
 * [玉桃文飨轩](https://share.lovejade.cn/)
 * [悠然宜想亭](https://forum.lovejade.cn/)
 * [静轩之别苑](https://quickapp.lovejade.cn/)
 * [晚晴幽草轩](https://www.jeffjade.com/)
 
-以上介绍内容，部分使用 ChatGPT 加以 **润色** 。截止目前，它可以协助人类，已经很多，诸如学术论文、内容创作、翻译、数据分析、研究咨询、简历和求职信、广告文案、编写小说、个人陈述、SEO 优化等等，如果想让它更好帮助到您，可以移步 [ChatGPT 中文调教指南](https://github.com/PlexPt/awesome-chatgpt-prompts-zh) ，学习怎么让它在不同场景，更好听懂你的话。
+以上介绍内容，部分使用 ChatGPT 加以**润色** 。截止目前，它可以协助人类，已经很多，诸如学术论文、内容创作、翻译、数据分析、研究咨询、简历和求职信、广告文案、编写小说、个人陈述、[SEO](https://nicelinks.site/tags/SEO) 优化等等，如果想让它更好帮助到您，可以移步 [ChatGPT 中文调教指南](https://github.com/PlexPt/awesome-chatgpt-prompts-zh) ，学习怎么让它在不同场景，更好听懂你的话。
 
 ## 执照
 

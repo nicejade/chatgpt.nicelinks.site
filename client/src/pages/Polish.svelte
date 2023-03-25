@@ -66,8 +66,7 @@
     id="message"
     rows="10"
     bind:value={userMsgText}
-    class="inline-block w-full bg-gray-50 border border-gray-300 text-gray-600 
-    text-base rounded-lg  p-2.5 focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
+    class="inline-block w-full p-2 text-base text-gray-600 border border-gray-300 rounded-lg bg-gray-50 t md:text-sm focus:outline-none focus:ring-2 focus:ring-link focus:border-transparent"
     placeholder={desc}
     required
   />
