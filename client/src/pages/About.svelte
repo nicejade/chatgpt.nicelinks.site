@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte'
-  // @ts-ignore
   import AboutMe from './../markdown/AboutMe.md'
   import { init } from '@waline/client'
   import '@waline/client/dist/waline.css'

@@ -21,6 +21,7 @@
 
   <nav class="flex flex-row items-center h-full text-lg md:text-base">
     <a on:click={() => report('friends')} href="https://nicelinks.site/friends">友情链接</a>
+    <a on:click={() => report('sponsor')} href="/sponsor" use:link class="ml-4">赞助</a>
     <a on:click={() => report('setting')} href="/setting" use:link class="ml-4">设置</a>
     <a on:click={() => report('about')} href="/about" use:link class="ml-4">关于</a>
   </nav>

@@ -28,5 +28,9 @@ export default {
     asyncComponent: () => import('./pages/About.svelte')
   }),
 
+  '/sponsor': wrap({
+    asyncComponent: () => import('./pages/Sponsor.svelte')
+  }),
+
   '*': Home
 }
