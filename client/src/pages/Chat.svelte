@@ -20,7 +20,7 @@
   let currentChatId: string = getParentMessageId()
   let chatTextArr: Array<object> = []
   let isLoading: boolean = false
-  let chatListNode: HTMLElement = null
+  let htmlBodyNode: HTMLBodyElement = null
   let textareaNode: HTMLElement = null
   const IS_MOBILE = window.innerWidth <= 768
   const TEXTAREA_HEIGHT: number = IS_MOBILE ? 38 : 42
@@ -40,7 +40,7 @@
 
   onMount(() => {
     chatTextArr = chatTextArr.concat(DEFAULT_CHAT)
-    chatListNode = document.getElementById('chatlist')
+    htmlBodyNode = document.getElementsByTagName('body')[0]
     textareaNode = document.getElementById('message')
   })
 
@@ -50,12 +50,11 @@
       text: userMsgText,
       time: new Date().getTime(),
     })
-    scrollChatToBottom()
   }
 
   const scrollChatToBottom = async () => {
     await sleep(10)
-    chatListNode.scrollTo({ top: 2e6, behavior: 'smooth' })
+    htmlBodyNode.scrollTo({ top: 2e6, behavior: 'smooth' })
   }
 
   const saveChatContent = (userAsk: object, gptReply: GptReply) => {
@@ -79,12 +78,11 @@
         currentChatId = res.id
         setParentMessageId(currentChatId)
         saveChatContent(params, res)
-        chatTextArr.push({
+        chatTextArr = chatTextArr.concat({
           from: res.assistant,
           text: res.text,
           time: new Date().getTime(),
         })
-        chatTextArr = chatTextArr
         gtagTracking('request-success', 'chat')
       })
       .catch((err) => {
@@ -95,7 +93,6 @@
       .finally(() => {
         gtagTracking('request-send', 'chat')
         isLoading = false
-        scrollChatToBottom()
       })
   }
 
@@ -106,6 +103,7 @@
     injectUserChat()
     injectGptChat()
     resetUserInput()
+    scrollChatToBottom()
   }
 
   const resetUserInput = async () => {
@@ -163,7 +161,7 @@
 
 <section
   id="chatlist"
-  class="flex-col pb-24 mx-auto page-warpper pt-14 bg-gradient-to-b from-gray-50"
+  class="flex-col pb-32 mx-auto page-warpper pt-14 bg-gradient-to-b from-gray-50"
 >
   {#each chatTextArr as item, i}
     {#if item.from === 'user'}
