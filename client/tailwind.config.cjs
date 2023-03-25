@@ -27,13 +27,12 @@ module.exports = {
     },
     extend: {
       maxWidth: {
-        "tiny": '15rem'
+        "tiny": '16rem'
       },
       typography: {
         DEFAULT: {
           css: {
             "li, pre, code": { 
-              fontSize: '1rem',
               margin: '0 !important',
               lineHeight: "1.5rem",
             },
@@ -49,9 +48,13 @@ module.exports = {
               listStyleType: "disc",
               marginLeft: 0,
             },
-            "p": {
-              "margin-top": "1rem",
-              "margin-bottom": "1rem"
+            "div p": {
+              "margin-top": "0.5rem !important",
+              "margin-bottom": "0.5rem !important",
+            },
+            "li p": {
+              "margin-top": "0 !important",
+              "margin-bottom": "0 !important",
             },
             "h2, h3": {
               marginTop: 0

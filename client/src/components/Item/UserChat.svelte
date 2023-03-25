@@ -18,6 +18,8 @@
       <img class="w-6 h-6 m-1" src={edit} alt={TITLE} />
     </button>
   {/if}
-  <div class="mt-3 mr-3 text-brand md:text-sm">{params.text}</div>
+  <p class="px-4 mt-3 mr-3 rounded text-brand md:text-sm">
+    {params.text}
+  </p>
   <img class="w-10 h-10 m-1 rounded-full ring-2 ring-gray-300" src={user} alt={TITLE} />
 </div>

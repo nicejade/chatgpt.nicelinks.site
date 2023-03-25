@@ -78,7 +78,7 @@
   {/if}
   {#if gptReplyText}
     <div class="w-full p-2 my-4 whitespace-pre-line bg-gray-100 rounded-lg shadow text-brand">
-      <h2 class="mb-2 text-lg font-bold">ChatGPT 润色结果：</h2>
+      <h2 class="mb-2 text-lg font-bold md:text-base">ChatGPT 润色结果：</h2>
       <article class="prose whitespace-pre-line md:prose-sm">
         {@html parse(gptReplyText)}
       </article>

@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center w-full">
-  <span>AI 正在生成回复，请稍后</span>
+  <span class="md:text-sm">AI 正在生成回复，请稍后</span>
   <div class="mx-2 balls">
     <div />
     <div />
@@ -20,7 +20,7 @@
     width: 0.3rem;
     height: 0.3rem;
     border-radius: 50%;
-    background-color: #213547;
+    background-color: #4b5563;
     transform: translateY(-100%);
     animation: wave 0.6s ease-in-out alternate infinite;
   }

@@ -32,10 +32,8 @@
 </script>
 
 <div class="flex flex-row justify-start mb-4">
-  <img class="w-10 h-10 m-1 rounded-full ring-2 ring-gray-300" src={logo} alt={TITLE} />
-  <article
-    class="max-w-lg pl-3 mt-3 prose whitespace-pre-line md:max-w-xs sm:max-w-tiny md:prose-sm"
-  >
+  <img class="w-10 h-10 m-1 mr-3 rounded-full ring-2 ring-gray-300" src={logo} alt={TITLE} />
+  <article class="px-4 prose rounded md:prose-sm md:prose-pre:max-w-tiny">
     {@html parse(params.text)}
   </article>
 </div>

@@ -43,7 +43,7 @@
     /></svg
   >
   <span class="sr-only">Info</span>
-  <div class="ml-3 text-base font-medium">
+  <div class="ml-3 text-base md:text-sm">
     <slot />
   </div>
   <button
