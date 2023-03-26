@@ -15,7 +15,7 @@
   }
 
   const autoHideAlert = async () => {
-    await sleep(2000)
+    await sleep(2100)
     hideAlert()
   }
 
@@ -25,7 +25,7 @@
 </script>
 
 <div
-  class="absolute flex items-center p-4 mb-4 rounded-lg text-warn w-max top-8 right-1/2 translate-x-2/4 bg-blue-50 "
+  class="absolute flex items-center p-4 mb-4 rounded-lg text-warn w-max top-16 right-1/2 translate-x-2/4 bg-blue-50 "
   role="alert"
   id="alert-info"
   transition:fade={{ delay: 100, duration: 300 }}
