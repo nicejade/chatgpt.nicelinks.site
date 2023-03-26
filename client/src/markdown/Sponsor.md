@@ -7,7 +7,7 @@
 最后，**再次感谢您的支持和信任**。“[天意怜幽草，人间重晚晴](https://forum.lovejade.cn/d/139)”；我们希望通过不懈努力，为您创造更美好的 ChatGPT 学习和交流体验。如果您愿意赞助这个项目，可以通过如下方式进行赞助。期待着您的参与和反馈，共同创造更美好的未来。
 
 <div class="m-auto text-center">
-  <img style="margin: 0" class="shadow-md" width=234 src="https://nicelinks.site/static/img/reward_wexin.jpg"  alt="微信扫码赞助" />
+  <img style="margin: 0" class="shadow-md" width=234 src="https://image.nicelinks.site/赞赏码.jpeg?imageView2/1/w/600/h/600/interlace/1/ignore-error/1"  alt="素问智聊斋 - 微信赞赏码" />
   <p class="font-medium text-gray-600">微信扫码赞助</p>
 </div>
 

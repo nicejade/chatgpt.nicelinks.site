@@ -1,13 +1,8 @@
-
 **[素问智聊斋](https://chatgpt.nicelinks.site/)** ，非官方 ChatGPT 在线客户端，旨在提供更便捷的 [ChatGPT](https://nicelinks.site/post/6391e22878b7a1291995ff86) 访问体验；它基于非官方 [ChatGPT API](https://github.com/transitive-bullshit/chatgpt-api)、[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0)、[TailwindCSS](https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7)、[Vite](https://nicelinks.site/post/6010e1b10c71de1fb957b64e) 和 NodeJS 所搭建，无需账号，零配置，即可与 ChatGPT 畅聊；支持自定义 OPENAI API KEY。
 
 ## 目标与哲学
 
 [OpenAI](https://nicelinks.site/post/6391e22878b7a1291995ff86) 于 2022 年 11 月推出的超级对话模型 **ChatGPT**， 受到来自世界各地的认可和赞誉，令人印象深刻。然而，由于一些原因，如果没有正确搭建相应的环境（🪜），ChatGPT 在中国地区就无法正常使用。鉴于此，搭建了这个服务，以便用户能够方便地使用 ChatGPT。当然，条件允许您可前往 OpenAI 官网上注册、登录、申请专属 `API KEY`。此外，为了保障用户的数据安全，本服务的操作过程中不会存储任何使用者的数据，因此可以放心使用（备注：这段介绍有使用本服务加以润色）。
-
-## 先决条件
-
-说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级 [Node.js](https://nodejs.org/en/)，[pnpm](https://nicelinks.site/post/62989af00f40a860b1599de2)、[Yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/) 作为首选）。
 
 ## 适用场景
 
@@ -50,7 +45,7 @@ Svelte 还通过不需要类或函数来声明组件来提供易用性。每个 
 
 关于 ChatGPT，相信接触过它的人们，或多或少都会有自己的感受；目前为止，吾有以下几点看法：
 
-* 类 ChatGPT 似 AI 产品，必将像如今的手机一般，成为绝大部分人类生活必需品；
+* 类似 ChatGPT 这样的 [AI](https://nicelinks.site/tags/AI) 产品，必将像如今的手机一般，成为绝大部分人类生活必需品；
 * 毕竟是工具，使用乃至产生依赖，倒无不可；但也不能荒废自身，我辈仍须保持**深度学习**及提高学习能力；
 * AI 会进而加剧人与人之间的差异；因为不喜欢折腾或探究的人，很难尽早去接触它，而是等时代浪潮拍打过来。
 
@@ -63,7 +58,7 @@ Svelte 还通过不需要类或函数来声明组件来提供易用性。每个 
 * [静轩之别苑](https://quickapp.lovejade.cn/)
 * [晚晴幽草轩](https://www.jeffjade.com/)
 
-以上介绍内容，部分使用 ChatGPT 加以**润色** 。截止目前，它可以协助人类，已经很多，诸如学术论文、内容创作、翻译、数据分析、研究咨询、简历和求职信、广告文案、编写小说、个人陈述、[SEO](https://nicelinks.site/tags/SEO) 优化等等，如果想让它更好帮助到您，可以移步 [ChatGPT 中文调教指南](https://github.com/PlexPt/awesome-chatgpt-prompts-zh) ，学习怎么让它在不同场景，更好听懂你的话。
+以上介绍内容，部分使用 ChatGPT 加以**润色** 。截止目前，它可以协助人类，已经很多，诸如学术论文、内容创作、翻译、数据分析、研究咨询、简历和求职信、广告文案、编写小说、个人陈述、[SEO](https://nicelinks.site/tags/SEO) 优化等等，如果想让它更好帮助到您，可以移步 [ChatGPT 中文调教指南](https://nicelinks.site/redirect?url=https://github.com/PlexPt/awesome-chatgpt-prompts-zh) ，学习怎么让它在不同场景，更好听理解您的指令。
 
 ## 执照
 
