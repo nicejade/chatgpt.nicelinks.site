@@ -49,24 +49,28 @@ module.exports = {
               marginLeft: 0,
             },
             "div p": {
-              "margin-top": "0.5rem !important",
-              "margin-bottom": "0.5rem !important",
+              marginTop: "0.5rem !important",
+              marginBottom: "0.5rem !important",
             },
             "li p": {
-              "margin-top": "0 !important",
-              "margin-bottom": "0 !important",
+              marginTop: "0 !important",
+              marginBottom: "0 !important",
+            },
+            "h2": {
+              fontSize: "1.25rem",
             },
             "h2, h3": {
-              marginTop: 0
+              marginTop: "1.25rem"
             },
             "h4, h5, h6": {
-              fontSize: '1.25rem',
+              fontSize: "1.125rem",
+              marginTop: "1.125rem",
             },
             "pre code::before": {
-              "padding-left": "unset",
+              paddingLeft: "unset",
             },
             "pre code::after": {
-              "padding-right": "unset",
+              paddingRight: "unset",
             },
             img: {
               marginTop: "1rem",
@@ -77,8 +81,8 @@ module.exports = {
               textDecoration: 'none',
             },
             "pre": {
-              "border": "1px solid #e8e8e8",
-              "border-radius": "0.5rem",
+              border: "1px solid #e8e8e8",
+              borderRadius: "0.5rem",
             },
             "pre, code": {
               color: "#213547",
@@ -88,16 +92,24 @@ module.exports = {
               backgroundColor: "#f3f4f6",
               color: "#f59e0b",
               fontWeight: "400",
-              "border-radius": "0.25rem",
+              borderRadius: "0.25rem",
             },
             "code::before": {
               content: '""',
-              "padding-left": "0.25rem",
+              paddingLeft: "0.25rem",
             },
             "code::after": {
               content: '""',
-              "padding-right": "0.25rem",
+              paddingRight: "0.25rem",
             },
+            "table": {
+              "border-top-width": "1px",
+              "border-bottom-width": "1px"
+            },
+            "thead tr th": {
+              "padding-top": "0.5rem",
+              "padding-bottom": "0.5rem",
+            }
           },
         },
       },
