@@ -118,9 +118,11 @@
     gtagTracking('send', 'chat')
   }
 
-  const onResetClick = () => {
-    resetUserInput()
-    gtagTracking('reset', 'chat')
+  const onNewChatClick = () => {
+    currentChatId = ''
+    setParentMessageId(currentChatId)
+    chatTextArr = [].concat(DEFAULT_CHAT)
+    gtagTracking('new-chat', 'chat')
   }
 
   const onRecordClick = () => {
@@ -189,7 +191,7 @@
     required
   />
   <div class="flex flex-row items-center justify-between w-full mt-3">
-    <button type="button" on:click={onResetClick} class="!w-20 regular-btn">重置</button>
+    <button type="button" on:click={onNewChatClick} class="regular-btn">新建会话</button>
     <button type="button" on:click={onRecordClick} class="regular-btn">聊天记录</button>
     <button type="button" class="!w-20 primary-btn" on:click={onSendClick}>发送</button>
   </div>

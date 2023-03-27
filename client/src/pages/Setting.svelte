@@ -8,7 +8,7 @@
 
   $: {
     setIsSaveChat(isSaveChat)
-    gtagTracking(`${isSaveChat ? 'do' : 'no-'}save-chat`, 'setting')
+    gtagTracking(`${isSaveChat ? 'do' : 'no'}-save-chat`, 'setting')
   }
 
   /*----------------CallBackEvent----------------*/
