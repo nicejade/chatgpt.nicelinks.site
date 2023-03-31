@@ -1,6 +1,6 @@
 {
-  "name": "\u667a\u804a\u95ee\u5f02\u658b",
-  "short_name": "\u667a\u804a\u95ee\u5f02\u658b",
+  "name": "\u7d20\u95ee\u667a\u804a\u658b",
+  "short_name": "\u7d20\u95ee\u667a\u804a\u658b",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +13,8 @@
       "type": "image/png"
     }
   ],
+  "start_url": "https://chatgpt.nicelinks.site/?ref=device-screen",
   "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "background_color": "#888888",
   "display": "standalone"
 }
