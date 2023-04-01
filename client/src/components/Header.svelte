@@ -1,7 +1,7 @@
 <script lang="ts">
   import { link } from 'svelte-spa-router'
   import logo from './../assets/icons/logo.svg'
-  import { TITLE } from './../helper/constant'
+  import { FEEDBACK_PATH, TITLE } from './../helper/constant'
   import { gtagTracking } from '../helper/utils'
 
   const report = (action: string) => {
@@ -20,8 +20,15 @@
   </a>
 
   <nav class="flex flex-row items-center h-full text-lg md:text-base">
-    <a on:click={() => report('friends')} href="https://nicelinks.site/friends">友情链接</a>
+    <a on:click={() => report('friends')} href="https://nicelinks.site/friends">友链</a>
     <a on:click={() => report('sponsor')} href="/sponsor" use:link class="ml-4">赞助</a>
+    <a
+      on:click={() => report('feedback')}
+      target="_blank"
+      rel="noreferrer"
+      href={FEEDBACK_PATH}
+      class="ml-4">留言</a
+    >
     <a on:click={() => report('setting')} href="/setting" use:link class="ml-4">设置</a>
     <a on:click={() => report('about')} href="/about" use:link class="ml-4">关于</a>
   </nav>

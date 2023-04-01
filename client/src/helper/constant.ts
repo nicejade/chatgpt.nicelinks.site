@@ -5,6 +5,8 @@ export const PARENT_MSG_ID = 'parent-msg-id'
 export const IS_SAVE_CHAT = 'is-save-chat'
 export const CHAT_RECORD = 'chat-record'
 
+export const FEEDBACK_PATH = 'https://nicelinks.site/post/63fdeb37fe46ca437e0aa780?ref=chatgpt.nicelinks.site'
+
 export const APP_CONF_ARR = [
   {
     title: '🎭 与 AI 对话 🎉',

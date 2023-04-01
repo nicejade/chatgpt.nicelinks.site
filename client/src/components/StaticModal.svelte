@@ -4,6 +4,8 @@
   import { Modal } from 'flowbite'
   import type { ModalOptions } from 'flowbite'
   import { gtagTracking } from '../helper/utils'
+  import { FEEDBACK_PATH } from './../helper/constant'
+
   let modal = null
 
   onMount(() => {
@@ -25,7 +27,7 @@
 
   const sendFeedback = () => {
     gtagTracking('modal-send-feedback', 'modal')
-    window.open(`https://nicelinks.site/post/63fdeb37fe46ca437e0aa780`)
+    window.open(FEEDBACK_PATH)
   }
 
   const closeModal = () => {

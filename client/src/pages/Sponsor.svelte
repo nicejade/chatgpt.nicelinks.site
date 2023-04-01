@@ -1,4 +1,5 @@
 <script>
+  // @ts-ignore
   import Sponsor from './../markdown/Sponsor.md'
 </script>
 
