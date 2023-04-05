@@ -9,6 +9,7 @@
     "watch": "npx tsx watch src/index.ts"
   },
   "dependencies": {
+    "@fastify/rate-limit": "^8.0.0",
     "chatgpt": "^5.0.4",
     "dotenv": "^16.0.3",
     "fastify": "^4.13.0",
