@@ -1,7 +1,7 @@
 {
   "name": "server",
   "description": "素问智聊斋，服务端。",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "nicejade",
   "main": "index.ts",
   "scripts": {
@@ -9,6 +9,7 @@
     "watch": "npx tsx watch src/index.ts"
   },
   "dependencies": {
+    "@fastify/helmet": "^10.1.0",
     "@fastify/rate-limit": "^8.0.0",
     "chatgpt": "^5.0.4",
     "dotenv": "^16.0.3",

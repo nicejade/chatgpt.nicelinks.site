@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fastify/helmet': ^10.1.0
   '@fastify/rate-limit': ^8.0.0
   '@types/node': ^18.14.0
   chatgpt: ^5.0.4
@@ -10,6 +11,7 @@ specifiers:
   typescript: ^4.9.5
 
 dependencies:
+  '@fastify/helmet': 10.1.0
   '@fastify/rate-limit': 8.0.0
   chatgpt: 5.0.4
   dotenv: 16.0.3
@@ -67,6 +69,13 @@ packages:
     resolution: {integrity: sha512-ypZynRvXA3dibfPykQN3RB5wBdEUgSGgny8Qc6k163wYPLD4mEGEDkACp+00YmqkGvIm8D/xYoHajwyEdWD/eg==}
     dependencies:
       fast-json-stringify: 5.5.0
+    dev: false
+
+  /@fastify/helmet/10.1.0:
+    resolution: {integrity: sha512-v7QJPYf1uVcCwzyHzkDGcHTqDPscXj/61JKxOdvczyDPAKTxSeb9Sc2OBActXaj7zUELiAdgnkKkzNwmCNzBLQ==}
+    dependencies:
+      fastify-plugin: 4.5.0
+      helmet: 6.0.1
     dev: false
 
   /@fastify/rate-limit/8.0.0:
@@ -385,6 +394,11 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: false
+
+  /helmet/6.0.1:
+    resolution: {integrity: sha512-8wo+VdQhTMVBMCITYZaGTbE4lvlthelPYSvoyNvk4RECTmrVjMerp9RfUOQXZWLvCcAn1pKj7ZRxK4lI9Alrcw==}
+    engines: {node: '>=14.0.0'}
     dev: false
 
   /hosted-git-info/4.1.0:
