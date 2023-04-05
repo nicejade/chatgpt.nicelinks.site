@@ -3,12 +3,16 @@
   import { onMount } from 'svelte'
   import { Modal } from 'flowbite'
   import type { ModalOptions } from 'flowbite'
-  import { gtagTracking } from '../helper/utils'
+  import { gtagTracking, getLocalStorage, setLocalStorage } from '../helper/utils'
   import { FEEDBACK_PATH } from './../helper/constant'
 
   let modal = null
+  const MODAL_STORAGR_KEY = `static-modal-${params.id}`
 
   onMount(() => {
+    const isConfirmedByUser = getLocalStorage(MODAL_STORAGR_KEY)
+    if (isConfirmedByUser) return
+
     const $targetEl = document.getElementById('static-modal')
     const options: ModalOptions = {
       placement: 'top-center',
@@ -30,8 +34,18 @@
     window.open(FEEDBACK_PATH)
   }
 
+  const assembleModalBody = () => {
+    return params.body.replace('#DATE', params.date)
+  }
+
   const closeModal = () => {
     modal.hide()
+  }
+
+  const handleConfirm = () => {
+    modal.hide()
+    gtagTracking('modal-confirm', 'modal')
+    setLocalStorage(MODAL_STORAGR_KEY, 1)
   }
 </script>
 
@@ -69,7 +83,7 @@
       <!-- Modal body -->
       <div class="p-6 space-y-6">
         <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          {@html params.body}
+          {@html assembleModalBody()}
         </p>
       </div>
       <!-- Modal footer -->
@@ -84,7 +98,7 @@
         >
         <button
           type="button"
-          on:click={closeModal}
+          on:click={handleConfirm}
           class="text-white bg-brand hover:bg-link font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >{params.buttonText}</button
         >

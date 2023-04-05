@@ -27,19 +27,7 @@
 
 ## 技术选型
 
-[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0) 、 [TailwindCSS](https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7) 、 [Vite](https://nicelinks.site/post/6010e1b10c71de1fb957b64e) 、[Fastify](https://nicelinks.site/post/6400b3eafe46ca437e0ac36e)、[TypeScript](https://nicelinks.site/post/6278fdeaac00ce3f9b11a8ef) 等，具为当前所流行，并且喜爱的技术栈 / 工具；其中 Fastify、Svelte 尚未使用过值得一提；
-
-#### 什么是 Svelte？
-
-[Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0) 是 [另一个前端框架，类似于 React](https://blog.logrocket.com/should-you-switch-react-svelte/) 或 [Vue](https://nicelinks.site/post/5b1a221c0526c920d6dfaada)。像这两个一样，你可以使用 Svelte 来制作单页应用程序。然而，Svelte 有一些特性使其与其他框架截然不同。
-
-例如，与其他框架不同，Svelte 主要是一个编译框架；Svelte 库的大部分是运行时依赖项 `devDependency`，而不是运行时依赖项。这有助于使最终应用程序更小、更快，以便客户端下载。
-
-另一个区别是 Svelte 不使用虚拟 DOM。相反，它使用各种策略来仅更新已更改的页面的特定部分。这减少了开销并使应用程序更快。
-
-Svelte 还通过不需要类或函数来声明组件来提供易用性。每个 Svelte 文件本身都被视为一个组件。
-
-最后，Svelte 的钩子很少。尽管生命周期功能需要挂钩，但 Svelte 不需要复杂的状态管理挂钩。状态可以通过声明一个变量来存储和使用，就像在 vanilla JavaScript 中一样。
+前端采用了 [Svelte](https://nicelinks.site/post/62a9c2ad90509e23cea772c0) 、[TypeScript](https://nicelinks.site/post/6278fdeaac00ce3f9b11a8ef)、[TailwindCSS](https://nicelinks.site/post/5fd20cb4c06d6302c1907ec7)、[Flowbite](https://nicelinks.site/post/617138035e35cd063077cefc) 、[MDSvex](https://nicelinks.site/post/642598ca2d6c9c63445c8862)、[Vite](https://nicelinks.site/post/6010e1b10c71de1fb957b64e)、 等流行技术栈，而后台则采用 [Fastify](https://nicelinks.site/post/6400b3eafe46ca437e0ac36e) 框架；在服务器上，则基于 [Nginx](https://nicelinks.site/post/6339a6aa35a9c117dacf2363)、[pm2](https://nicelinks.site/post/62bc60e90c61c703d7747590) 进行部署；其中 Svelte、TailwindCSS、MDSvex 等工具，极大提升了编写代码的舒适度，令人青睐有加。
 
 ## 思考感悟
 
