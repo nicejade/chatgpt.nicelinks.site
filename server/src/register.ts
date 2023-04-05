@@ -2,8 +2,9 @@ import helmet from '@fastify/helmet'
 
 export default async (fastify) => {
   const rateLimitOptions = {
-    max: 3,
-    timeWindow: '1 minute'
+    max: 5,
+    ban: 2,
+    timeWindow: 1000 * 60 * 60 * 6
   }
 
   return await fastify.register(import('@fastify/rate-limit'), rateLimitOptions)
