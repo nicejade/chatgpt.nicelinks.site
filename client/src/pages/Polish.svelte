@@ -11,11 +11,12 @@
   let gptReplyText: string = ''
   let errorMsgText: string = ''
   let isLoading: boolean = false
+  const PROMPT_TEXT_LEN_LIMIT: number = 800
 
   const checkAndAskGPT = () => {
-    if (!userMsgText.trim()) {
-      return (errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.')
-    }
+    if (!userMsgText.trim()) return (errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.')
+    if (userMsgText.length > PROMPT_TEXT_LEN_LIMIT)
+      return (errorMsgText = '抱歉，您所输入的 Prompt Text 长度超过限制.')
     injectGptChat()
   }
 

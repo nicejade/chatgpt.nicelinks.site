@@ -24,6 +24,7 @@
   let textareaNode: HTMLElement = null
   const IS_MOBILE = window.innerWidth <= 768
   const TEXTAREA_HEIGHT: number = IS_MOBILE ? 38 : 42
+  const PROMPT_TEXT_LEN_LIMIT: number = 300
 
   interface GptReply {
     id: string
@@ -97,9 +98,9 @@
   }
 
   const checkAndAskGPT = () => {
-    if (!userMsgText.trim()) {
-      return (errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.')
-    }
+    if (!userMsgText.trim()) return (errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.')
+    if (userMsgText.length > PROMPT_TEXT_LEN_LIMIT)
+      return (errorMsgText = '抱歉，您所输入的 Prompt Text 长度超过限制.')
     injectUserChat()
     injectGptChat()
     resetUserInput()
