@@ -37,11 +37,6 @@ export const ROUTE_TITME_MAP = {
 
 export const SYSTEM_NOTICE_MAP = [
   {
-    id: '230405',
-    date: '2023 年 4 月 5 日 15 时',
-    body: '🎉 尊敬的用户，先前 <a href="https://chatgpt.nicelinks.site/">素问智聊斋</a> 后台调用 Open AI 接口出现不可抗力错误（Error：429），经多方折腾，现已得到解决，您可以正常使用，无需填写 Open AI KEY；为保证服务持续健康运行，对使用频次有增加些许限制🚫，希望您在发送请求之前，认真组织好问题（Prompt Text），以避免被限制，期待您的理解与支持（于 #DATE）。',
-  },
-  {
     id: '230401',
     title: '系统公告',
     date: '2023 年 4 月 1 日 18 时',
@@ -49,3 +44,9 @@ export const SYSTEM_NOTICE_MAP = [
     buttonText: '已知悉',
   }
 ]
+
+export const ERROR_MSG_MAP = {
+  noPromptFilled: '请输入您想与人工智能进行交流的内容.',
+  promptOverLimit: '您输入的 Prompt Text 长度超限制.',
+  requestInProgress: '您已发出的指令正在进行中，请稍后片刻.',
+}

@@ -7,6 +7,7 @@
   import Loading from '../components/Loading.svelte'
   import apis from '../helper/apis'
   import { sleep, gtagTracking } from '../helper/utils'
+  import { ERROR_MSG_MAP } from '../helper/constant'
   import {
     getParentMessageId,
     setParentMessageId,
@@ -51,6 +52,7 @@
       text: userMsgText,
       time: new Date().getTime(),
     })
+    scrollChatToBottom()
   }
 
   const scrollChatToBottom = async () => {
@@ -92,19 +94,27 @@
         errorMsgText = err?.message
       })
       .finally(() => {
+        scrollChatToBottom()
         gtagTracking('request-send', 'chat')
         isLoading = false
       })
   }
 
   const checkAndAskGPT = () => {
-    if (!userMsgText.trim()) return (errorMsgText = '嗨，主人，请输入您想与 AI 交流的内容.')
-    if (userMsgText.length > PROMPT_TEXT_LEN_LIMIT)
-      return (errorMsgText = '抱歉，您所输入的 Prompt Text 长度超过限制.')
+    if (!userMsgText.trim()) {
+      gtagTracking('no-prompt-filled', 'chat')
+      return (errorMsgText = ERROR_MSG_MAP.noPromptFilled)
+    }
+    if (userMsgText.length > PROMPT_TEXT_LEN_LIMIT) {
+      gtagTracking('prompt-over-limit', 'chat')
+      return (errorMsgText = ERROR_MSG_MAP.promptOverLimit)
+    }
+    if (isLoading) {
+      return (errorMsgText = ERROR_MSG_MAP.requestInProgress)
+    }
     injectUserChat()
     injectGptChat()
     resetUserInput()
-    scrollChatToBottom()
   }
 
   const resetUserInput = async () => {

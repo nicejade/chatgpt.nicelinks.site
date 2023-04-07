@@ -4,7 +4,7 @@
   import { gtagTracking } from '../helper/utils'
 
   const report = (action: string) => {
-    gtagTracking(action, 'home')
+    gtagTracking(`home-list-${action}`, 'home')
   }
 </script>
 
