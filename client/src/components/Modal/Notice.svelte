@@ -1,36 +1,41 @@
 <script lang="ts">
   export let params
-  import { onMount } from 'svelte'
+  import { onMount, onDestroy } from 'svelte'
   import { Modal } from 'flowbite'
   import type { ModalOptions } from 'flowbite'
-  import { gtagTracking, getLocalStorage, setLocalStorage } from '../helper/utils'
-  import { FEEDBACK_PATH } from './../helper/constant'
+  import { gtagTracking, getLocalStorage, setLocalStorage } from '../../helper/utils'
+  import { FEEDBACK_PATH } from '../../helper/constant'
 
   let modal = null
-  const MODAL_STORAGR_KEY = `static-modal-${params.id}`
+  const MODAL_KEY = 'static-modal'
+  const MODAL_STORAGR_KEY = `${MODAL_KEY}-${params.id}`
 
   onMount(() => {
     const isConfirmedByUser = getLocalStorage(MODAL_STORAGR_KEY)
     if (isConfirmedByUser) return
 
-    const $targetEl = document.getElementById('static-modal')
+    const $targetEl = document.getElementById(MODAL_KEY)
     const options: ModalOptions = {
       placement: 'top-center',
       backdrop: 'static',
       closable: true,
       onHide: () => {
-        gtagTracking('modal-hide', 'modal')
+        gtagTracking(`${MODAL_KEY}-hide`, MODAL_KEY)
       },
       onShow: () => {
-        gtagTracking('modal-show', 'modal')
+        gtagTracking(`${MODAL_KEY}-show`, MODAL_KEY)
       },
     }
     modal = new Modal($targetEl, options)
     modal.show()
   })
 
+  onDestroy(() => {
+    modal = null
+  })
+
   const sendFeedback = () => {
-    gtagTracking('modal-send-feedback', 'modal')
+    gtagTracking(`${MODAL_KEY}-feedback`, MODAL_KEY)
     window.open(FEEDBACK_PATH)
   }
 
@@ -44,7 +49,7 @@
 
   const handleConfirm = () => {
     modal.hide()
-    gtagTracking('modal-confirm', 'modal')
+    gtagTracking(`${MODAL_KEY}-confirm`, MODAL_KEY)
     setLocalStorage(MODAL_STORAGR_KEY, 1)
   }
 </script>
@@ -58,12 +63,12 @@
     <!-- Modal content -->
     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
       <!-- Modal header -->
-      <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+      <div class="flex items-center justify-between p-5 border-b rounded-t">
         <h3 class="text-xl font-medium text-gray-900 dark:text-white">{params.title}</h3>
         <button
           type="button"
           on:click={closeModal}
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
         >
           <svg
             aria-hidden="true"
@@ -87,21 +92,11 @@
         </p>
       </div>
       <!-- Modal footer -->
-      <div
-        class="flex items-center justify-center p-6 space-x-2 border-t border-gray-200 rounded-b"
-      >
-        <button
-          type="button"
-          on:click={sendFeedback}
-          class="text-gray-500 bg-white hover:bg-gray-100 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
-          >留言反馈</button
-        >
-        <button
-          type="button"
-          on:click={handleConfirm}
-          class="text-white bg-brand hover:bg-link font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          >{params.buttonText}</button
-        >
+      <div class="flex items-center justify-evenly p-6 border-t border-gray-200 rounded-b">
+        <button type="button" on:click={sendFeedback} class="modal-left-btn">留言反馈</button>
+        <button type="button" on:click={handleConfirm} class="modal-right-btn">
+          {params.buttonText}
+        </button>
       </div>
     </div>
   </div>

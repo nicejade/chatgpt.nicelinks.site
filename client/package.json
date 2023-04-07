@@ -2,7 +2,7 @@
   "name": "client",
   "description": "素问智聊斋，客户端。",
   "private": true,
-  "version": "0.7.3",
+  "version": "0.8.0",
   "type": "module",
   "scripts": {
     "start": "npm run dev",

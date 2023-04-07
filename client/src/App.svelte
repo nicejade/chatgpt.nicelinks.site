@@ -2,7 +2,7 @@
   import Router from 'svelte-spa-router'
   import routes from './routes'
   import Header from './components/Header.svelte'
-  import StaticModal from './components/StaticModal.svelte'
+  import NoticeModal from './components/Modal/Notice.svelte'
   import { gtagTracking } from './helper/utils'
   import { setPageMeta } from './helper/aside'
   import './assets/styles/app.css'
@@ -31,4 +31,4 @@
 <main id="main" class="flex flex-col w-full h-full max-w-2xl m-auto mx-auto">
   <Router {routes} on:routeLoaded={routeLoaded} />
 </main>
-<StaticModal params={getSystemAnnouncement()} />
+<NoticeModal params={getSystemAnnouncement()} />

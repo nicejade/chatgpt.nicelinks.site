@@ -5,6 +5,7 @@
   import UserChat from '../components/Item/UserChat.svelte'
   import GptChat from '../components/Item/GptChat.svelte'
   import Loading from '../components/Loading.svelte'
+  import SponsorModal from '../components/Modal/Sponsor.svelte'
   import apis from '../helper/apis'
   import { sleep, gtagTracking } from '../helper/utils'
   import { ERROR_MSG_MAP } from '../helper/constant'
@@ -23,9 +24,12 @@
   let isLoading: boolean = false
   let htmlBodyNode: HTMLBodyElement = null
   let textareaNode: HTMLElement = null
+  let isShowSponsor: boolean = false
+  let apiRequestCount: number = 0
   const IS_MOBILE = window.innerWidth <= 768
   const TEXTAREA_HEIGHT: number = IS_MOBILE ? 38 : 42
-  const PROMPT_TEXT_LEN_LIMIT: number = 300
+  const PROMPT_LEN_LIMIT: number = 300
+  const SHOW_SPONSOR_NUM: number = 3
 
   interface GptReply {
     id: string
@@ -45,6 +49,11 @@
     htmlBodyNode = document.getElementsByTagName('body')[0]
     textareaNode = document.getElementById('message')
   })
+
+  $: if (apiRequestCount === SHOW_SPONSOR_NUM) {
+    isShowSponsor = true
+    gtagTracking('show-sponsor-modal', 'chat')
+  }
 
   const injectUserChat = () => {
     chatTextArr = chatTextArr.concat({
@@ -78,6 +87,7 @@
     apis
       .requestChatGPT(params)
       .then((res) => {
+        apiRequestCount += 1
         currentChatId = res.id
         setParentMessageId(currentChatId)
         saveChatContent(params, res)
@@ -105,7 +115,7 @@
       gtagTracking('no-prompt-filled', 'chat')
       return (errorMsgText = ERROR_MSG_MAP.noPromptFilled)
     }
-    if (userMsgText.length > PROMPT_TEXT_LEN_LIMIT) {
+    if (userMsgText.length > PROMPT_LEN_LIMIT) {
       gtagTracking('prompt-over-limit', 'chat')
       return (errorMsgText = ERROR_MSG_MAP.promptOverLimit)
     }
@@ -170,6 +180,10 @@
   <Alert on:close={handleClose}>
     {errorMsgText}
   </Alert>
+{/if}
+
+{#if isShowSponsor}
+  <SponsorModal />
 {/if}
 
 <section
